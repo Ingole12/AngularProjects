@@ -1,0 +1,11 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+.one{
+    
+    height: 80px;
+    background-color: rgb(234, 80, 80);
+    border: 2px solid black ;
+    border-radius: 10px;
+}
