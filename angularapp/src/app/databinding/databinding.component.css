@@ -1,0 +1,10 @@
+.liststyle,li{
+    list-style: none;
+}
+button{
+    /* color: white; */
+    height: 30px;
+    width: 60px;
+    /* background-color: black; */
+    
+}

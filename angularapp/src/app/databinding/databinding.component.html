@@ -1,0 +1,16 @@
+
+<div class="liststyle">
+        <ol>
+         <li>
+            <label for="">UserName:</label>
+            <input [(ngModel)]="username" type="text"  name="" id=""><br>
+        </li>
+        <li>
+         UserName is: <b>{{username}}</b>
+        </li>
+        <li>
+            <button [disabled]="check()" (click)="handleClear()">Reset</button>
+        </li>
+        </ol>
+
+</div>
