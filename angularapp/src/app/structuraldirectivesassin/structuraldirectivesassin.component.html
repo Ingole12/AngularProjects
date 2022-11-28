@@ -1,0 +1,63 @@
+<div class="container">
+
+    <div>
+        <table class="table table-dark table-striped-columns">
+            <thead>
+                <tr>
+                    <th>Course Name</th>
+                    <th>Course Duration</th>
+                    <th>Course Eligibility</th>
+                    <th>Course Fee</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let one of cour" class="table-secondary">
+                    <td>{{one.courseName}}</td>
+                    <td>{{one.courseDuration}}</td>
+                    <td>{{one.courseEligibility}}</td>
+                    <td>{{one.fee}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <div class="col-md-4">
+            <select class="form-control" (change)="getValue($event)">
+                <option value="Default">Please Select Course
+                </option>
+                <option value="SEO">SEO</option>
+                <option value="Machine Learning">Machine Learning</option>
+                <option value="Cloud Computing">Cloud Computing</option>
+                <option value="Big Data">Big Data</option>
+            </select>
+        </div>
+        <div class="col-md-4" [ngSwitch]="newValue">
+            <h2 class="text-success" *ngSwitchDefault>Please Select Course</h2>
+            <h2 class="text-success" *ngSwitchCase="'SEO'">SEO</h2>
+            <h2 class="text-success" *ngSwitchCase="'Machine Learning'">Machine Learning</h2>
+            <h2 class="text-success" *ngSwitchCase="'Cloud Computing'">Cloud Computing</h2>
+            <h2 class="text-success" *ngSwitchCase="'Big Data'">Big Data</h2>
+        </div>
+    </div>
+
+
+
+    <form action="">
+        Click Hear For More About Course : <input type="checkbox" id="two" (click)="baseValue()">
+    </form>
+
+    <div class="container-md">
+        <h2 *ngIf="isShow" >SEO developers are front-end web developers who specialize in optimizing search engine discovery and rankings.</h2>
+    </div>
+    <div class="container-md"> 
+        <h2 *ngIf="ml"> Machine learning is a subfield of artificial intelligence, which is broadly defined as the capability of a machine to imitate intelligent human behavior.</h2>
+    </div>
+    <div class="container-md">
+      <h2 *ngIf="cm">Simply put, cloud computing is the delivery of computing services—including servers, storage, databases, networking, software, analytics, and intelligence—over the Internet (“the cloud”) to offer faster innovation, flexible resources, and economies of scale.</h2>
+    </div>
+    <div class="container-md">
+   <h2 *ngIf="bd">Big data is a term applied to data sets whose size or type is beyond the ability of traditional relational databases to capture, manage and process the data with low latency.</h2>
+    </div>
+</div>
+<app-attri></app-attri>

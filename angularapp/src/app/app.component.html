@@ -11,7 +11,7 @@
 <p>this is string interpulation one way databinding </p>
 <p>Server id :{{serverId}} Status: {{getServerStatus()}}</p>
 <p>button disabled is property binding onclick envent is event binding </p>
-<button [disabled]="allowNewServer" (click)='onclickServer()'>Add Server</button>
+<button [disabled]="allowNewServer" (click)='onclickServer()' class="btn btn-primary">Add Server</button>
 <!-- <img [src='imgurl'] alt='iiiiiiiiiiii'> -->
   <div>{{serverCreationStatus}}</div>
 
@@ -23,7 +23,12 @@
 </div>
 <p>{{servername}}</p>
 
+<button type="button" class="btn btn-warning">Warning</button>
+
+<app-demodirectives></app-demodirectives>
 <a href="databinding/databinding.component.ts" target="_blank"> Data Binding Assignment </a>
 <app-databinding></app-databinding>
+
+<app-ngswitch></app-ngswitch>
 <!-- <app-server></app-server> -->
 <router-outlet></router-outlet>
