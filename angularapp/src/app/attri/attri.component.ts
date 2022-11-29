@@ -32,7 +32,12 @@ export class AttriComponent implements OnInit {
     }
   ]
 
+  uname;
   
+show(value){
+  this.uname=value;
+}
+
   constructor() { }
 
   ngOnInit() {

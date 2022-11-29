@@ -1,0 +1,16 @@
+
+.card-title{
+    background-color: rgb(32, 11, 52);
+    color: white;
+}
+.card{
+    background-color: rgb(160, 196, 158);
+    /* color: white; */
+    width: 40vw;
+    margin-top: 60;
+}
+.container{
+   
+    display: flex;
+    justify-content: center;
+}

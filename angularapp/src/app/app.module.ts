@@ -16,6 +16,8 @@ import { AttriComponent } from './attri/attri.component';
 import { CustdirDirective } from './custdir.directive';
 import { PasswordComponent } from './password/password.component';
 import { PassDirective } from './pass.directive';
+import { ParentComponent } from './@Input/parent/parent.component';
+import { ChildComponent } from './@Input/child/child.component';
 
 
 @NgModule({
@@ -31,12 +33,14 @@ import { PassDirective } from './pass.directive';
     AttriComponent,
     CustdirDirective,
     PasswordComponent,
-    PassDirective
+    PassDirective,
+    ParentComponent,
+    ChildComponent
   ],
   imports: [ // all modules
     BrowserModule,AppRoutingModule,FormsModule
   ],
   providers: [],// all services 
-  bootstrap: [PasswordComponent] // default loading component hearer
+  bootstrap: [ParentComponent] // default loading component hearer
 })
 export class AppModule { }

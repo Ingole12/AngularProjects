@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-password',
@@ -7,16 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PasswordComponent implements OnInit {
 
-  txone=document.getElementById('one') ;
-  txtwo=document.getElementById('two') ;
-  onclick(){
-        if (this.txone == this.txtwo) {
-          alert('Your Password Successfully Reset');
-        }
-        else{
-          alert('Your Password Not Successfully Reset');
-        }
+  password:any=12;
+  resetpassword:any;
+  vali:boolean;
+
+  onclick() {
+    if (this.password == this.resetpassword) {
+      this.vali=true;
+    }
+    else {
+     this.vali=false;
+    }
   }
+
   constructor() { }
 
   ngOnInit() {

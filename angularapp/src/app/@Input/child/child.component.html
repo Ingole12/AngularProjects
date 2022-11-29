@@ -1,0 +1,35 @@
+
+<div class="container">
+<div class="card text-center" >
+    <div class="card-body">
+      <h5 class="card-title">Assignmet @Input</h5>
+      <div *ngFor="let two of movies">
+        <h3> Movie Name:{{two.title}} </h3><br>
+        <h3> Director:{{two.director}} </h3><br>
+        <h3> Relese-Date:{{two.releseDate}} </h3><br>
+        <h3> Cast:{{two.cast}} </h3><br>
+      </div>
+     
+    </div>
+  </div>
+</div>
+<div class="container">
+    <table class="table table-dark table-striped-columns">
+        <thead>
+            <tr>
+                <th>Course Name</th>
+                <th>Course Duration</th>
+                <th>Course Eligibility</th>
+                <th>Course Fee</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let one of courses" class="table-secondary">
+                <td>{{one.courseName}}</td>
+                <td>{{one.courseDuration}}</td>
+                <td>{{one.courseEligibility}}</td>
+                <td>{{one.fee}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
