@@ -1,0 +1,14 @@
+
+<div class="container">
+    <h2>Parent Component</h2>
+<ul *ngFor="let a of cars">
+  <h4> Car Name:{{a.cName}}  <br> </h4>
+  <h4> Car Brand: {{a.bName}} <br> </h4>
+  <h4> Car Type:{{a.cType}} <br> </h4>
+  <h4> Car Engine: {{a.cEngine}} <br> </h4>
+  <h4> Car Milege: {{a.cMilege}} <br> </h4>
+</ul>
+</div>
+
+
+    <app-child-one (getcar)="cardetais($event)"></app-child-one>

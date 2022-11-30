@@ -18,6 +18,8 @@ import { PasswordComponent } from './password/password.component';
 import { PassDirective } from './pass.directive';
 import { ParentComponent } from './@Input/parent/parent.component';
 import { ChildComponent } from './@Input/child/child.component';
+import { ParentOneComponent } from './@Output/parent-one/parent-one.component';
+import { ChildOneComponent } from './@Output/child-one/child-one.component';
 
 
 @NgModule({
@@ -35,12 +37,14 @@ import { ChildComponent } from './@Input/child/child.component';
     PasswordComponent,
     PassDirective,
     ParentComponent,
-    ChildComponent
+    ChildComponent,
+    ParentOneComponent,
+    ChildOneComponent
   ],
   imports: [ // all modules
     BrowserModule,AppRoutingModule,FormsModule
   ],
   providers: [],// all services 
-  bootstrap: [ParentComponent] // default loading component hearer
+  bootstrap: [ParentOneComponent] // default loading component hearer
 })
 export class AppModule { }

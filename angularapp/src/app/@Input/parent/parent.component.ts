@@ -15,6 +15,13 @@ export class ParentComponent implements OnInit {
         cast:'Prabhas'
   }]
 
+  foods:string[]=[];
+  addfood(foodnaem){
+    console.log(foodnaem);
+     this.foods.push(foodnaem)
+          
+  }
+
   constructor() {
    }
 
@@ -31,15 +38,3 @@ export class ParentComponent implements OnInit {
 
 }
  
-
-
-// export class Movies {
-//   mName:string='Baahubali';
-//   director:string='S. S. Rajamouli';
-//   procuction:string='Arka Media Works';
-//   cast:string='Prabhas';
-//  }
- 
-// let movieobj=new Movies();
-
-
