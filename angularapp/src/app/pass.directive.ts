@@ -14,3 +14,4 @@ export class PassDirective {
       el.nativeElement.style.backgroundColor='Green';
   }
 }
+// This custom directive is used in password.component.html 

@@ -20,6 +20,10 @@ import { ParentComponent } from './@Input/parent/parent.component';
 import { ChildComponent } from './@Input/child/child.component';
 import { ParentOneComponent } from './@Output/parent-one/parent-one.component';
 import { ChildOneComponent } from './@Output/child-one/child-one.component';
+import { HooksComponent } from './LifeCycleHooks/hooks.component';
+// import { HookparentComponent } from './LifeCycleHooks/hookparent/hookparent.component';
+import { HookparentComponent } from './LifeCycleHooks/hookparent/hookparent.component';
+import { DirectiveAssinComponent } from './directive-assin/directive-assin.component';
 
 
 @NgModule({
@@ -39,12 +43,15 @@ import { ChildOneComponent } from './@Output/child-one/child-one.component';
     ParentComponent,
     ChildComponent,
     ParentOneComponent,
-    ChildOneComponent
+    ChildOneComponent,
+    HooksComponent,
+    HookparentComponent,
+    DirectiveAssinComponent
   ],
   imports: [ // all modules
     BrowserModule,AppRoutingModule,FormsModule
   ],
   providers: [],// all services 
-  bootstrap: [ParentOneComponent] // default loading component hearer
+  bootstrap: [HookparentComponent] // default loading component hearer
 })
 export class AppModule { }

@@ -13,3 +13,4 @@ export class CustdirDirective {
    }
 
 }
+// This custom directive is used in attri.component.html 

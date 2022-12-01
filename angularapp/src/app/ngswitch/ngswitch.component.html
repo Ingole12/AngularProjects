@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-4">
             <select class="form-control" (change)="getProductValue($event)">
-                <option value="Default">Please Select Product
+                <option value="Default" selected disabled >Please Select Product
                 </option>
                 <option value="Laptop" >Laptop</option>
                 <option value="Mobile" >Mobile</option>
@@ -11,7 +11,7 @@
             </select>
         </div>
         <div class="col-md-12" [ngSwitch]="selecteProduct">
-              <h2 class="text-success" *ngSwitchDefault>Please Select Product</h2>
+              <h2 class="text-success"  *ngSwitchDefault>Please Select Product</h2>
               <h2 class="text-success" *ngSwitchCase="'Laptop'">Laptop</h2>
               <h2 class="text-success" *ngSwitchCase="'Mobile'">Mobile</h2>
               <h2 class="text-success" *ngSwitchCase="'TV'">TV</h2>

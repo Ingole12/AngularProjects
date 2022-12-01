@@ -1,0 +1,25 @@
+<!-- Parent -->
+<div class="container p-5 m-2 bg-warning rounded border border-danger rounded-4  shadow-lg align-middle d-flex flex-column">
+   <!-- Select Array No: <select (change)="uid = sid.value" #sid  class="dropdown w-25">
+        <option selected disabled>No value selected</option>
+        <option [value]="id" *ngFor="let id of [1,2,3,4]">
+            {{id}}
+        </option>
+    </select> -->
+
+   <span class="h3">Select Car</span> <select name="" id="" (change)="carid = valid.value" #valid class="dropdown w-25">
+        <option selected disabled>No Value Selected </option>
+        <option *ngFor="let ab of car">
+          {{ab.cName}} 
+        </option>
+    </select>
+</div>
+
+<app-hooks  [cars]="carid"></app-hooks>
+
+
+
+
+
+
+<!-- [userid]="uid" -->
