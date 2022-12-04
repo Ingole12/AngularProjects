@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from 'src/app/models/procuct';
 
 @Component({
   selector: 'app-hookparent',
@@ -14,6 +15,19 @@ car=[
   {cName:"Thar",bName:'Mahindra'}
   // ,cType:'SUV',cEngine:'2184cc',cMilege:'15 kmpl'
 ]
+data;
+name:string;
+price:number;
+product:Product=new Product();
+
+handaledata(value){
+  this.data=value.target.data;
+}
+
+updateProduct(){
+  this.product.name=this.name;
+  this.product.price=this.price;
+}
   constructor() {
     console.log(this.car);   
    }

@@ -1,3 +1,28 @@
-<div class="two">
+<!-- <div class="two">
     <h3>You are so successful</h3>
+</div> -->
+<div class=" container m-5 p-5 bg-info  d-flex flex-wrap flex-column justify-content-center  align-content-center ">
+     <!-- <p class="text-align-center h3 ">Assignment On Add And Remove Element</p> -->
+     <div class="container align-self-center d-flex flex-wrap justify-content-around align-content-center" >
+        <input type="text" [(ngModel)]="textvar" >
+            <button class="btn btn-success" (click)="onClick()" type="button">Add</button>
+            <button class="btn btn-success" (click)="clear()" type="button">Clear</button>
+     </div>
+     <hr style="Color:rgb(7, 7, 7) ">
+     <div class="container" >
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Remove Product</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let one of newtext">
+                    <td ><h1>{{one}}</h1> </td>
+                    <td><button class="btn btn-danger" (click)="remove(one)">Remove</button></td>
+                </tr>
+            </tbody>
+        </table>
+     </div>
 </div>

@@ -15,7 +15,12 @@
     </select>
 </div>
 
-<app-hooks  [cars]="carid"></app-hooks>
+<input type="text" name="" placeholder="Enter Value" id="" (blur)="handaledata($event)">
+<p> Enter Product Name: <input placeholder="Product Name" [(ngModel)]="name" type="text" name="" id=""></p>
+<p> Enter Product Price: <input placeholder="Product Price" [(ngModel)]="price" type="text" name="" id=""></p>
+
+<button class="btn btn-primary " (click)="updateProduct()">Update Product</button>
+<app-hooks  [cars]="carid" [parentData]="data" [product]="product"></app-hooks>
 
 
 

@@ -52,6 +52,6 @@ import { DirectiveAssinComponent } from './directive-assin/directive-assin.compo
     BrowserModule,AppRoutingModule,FormsModule
   ],
   providers: [],// all services 
-  bootstrap: [HookparentComponent] // default loading component hearer
+  bootstrap: [TwoComponent] // default loading component hearer
 })
 export class AppModule { }
