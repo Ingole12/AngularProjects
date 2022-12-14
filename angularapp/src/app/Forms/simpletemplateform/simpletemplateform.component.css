@@ -1,0 +1,9 @@
+input.ng-invalid.ng-touched {
+    border: 2px solid red;
+    box-shadow: 4px 0 15px #d0474721;
+}
+#one{
+    background-image: url("https://i.pinimg.com/originals/81/64/fc/8164fc57f10493ab84efb8d2aa71a6fa.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}

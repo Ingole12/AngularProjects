@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { ServerComponent } from './server/server.component';
 import { OneComponent } from './one/one.component';
 import { TwoComponent } from './two/two.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DatabindingComponent } from './databinding/databinding.component';
 import { DemodirectivesComponent } from './demodirectives/demodirectives.component';
 import { NgswitchComponent } from './ngswitch/ngswitch.component';
@@ -24,6 +24,9 @@ import { HooksComponent } from './LifeCycleHooks/hooks.component';
 // import { HookparentComponent } from './LifeCycleHooks/hookparent/hookparent.component';
 import { HookparentComponent } from './LifeCycleHooks/hookparent/hookparent.component';
 import { DirectiveAssinComponent } from './directive-assin/directive-assin.component';
+import { SimpletemplateformComponent } from './Forms/simpletemplateform/simpletemplateform.component';
+import { ReFormComponent } from './Reactive/re-form/re-form.component';
+import { TempAssinComponent } from './Forms/temp-assin/temp-assin.component';
 
 
 @NgModule({
@@ -46,12 +49,15 @@ import { DirectiveAssinComponent } from './directive-assin/directive-assin.compo
     ChildOneComponent,
     HooksComponent,
     HookparentComponent,
-    DirectiveAssinComponent
+    DirectiveAssinComponent,
+    SimpletemplateformComponent,
+    TempAssinComponent,
+    ReFormComponent
   ],
   imports: [ // all modules
-    BrowserModule,AppRoutingModule,FormsModule
+    BrowserModule,AppRoutingModule,FormsModule,ReactiveFormsModule
   ],
   providers: [],// all services 
-  bootstrap: [TwoComponent] // default loading component hearer
+  bootstrap: [ReFormComponent] // default loading component hearer
 })
 export class AppModule { }

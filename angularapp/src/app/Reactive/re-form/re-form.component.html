@@ -1,0 +1,61 @@
+<div class="container border">
+    <div class=" row justify-content-center border">
+        <div class="col-md-6 text-left rounded py-5 ">
+            <h3>Reactive Form Learning</h3>
+            <form [formGroup]="myReactiveForm" (ngSubmit)="OnSubmit()" action="">
+                <div class="form-group" formGroupName="userDetails">
+
+                    <div class="from-group">
+                        <label for="">User Name:</label>
+                        <input type="text" name="" id="" class=" form-control" formControlName="username"
+                            placeholder="Enter user Name">
+                        <small class=" text-danger"
+                            *ngIf="!myReactiveForm.get('userDetails.username').valid && myReactiveForm.get('userDetails.username').touched">
+                            <small class=" text-danger"
+                                *ngIf="myReactiveForm.get('userDetails.username').errors['required']">Please Enter User
+                                Name</small>
+                            <!-- <small class=" text-danger" *ngIf="myReactiveForm.get('username').value =='Codemind'">CodeMind  is Not allowed</small>  -->
+                            <!-- <small class=" text-danger" *ngIf="myReactiveForm.get('username').value =='Technology' ">Technology is not allowed</small> -->
+                            <small class=" text-danger"
+                                *ngIf="myReactiveForm.get('userDetails.username').errors['namesNotAllowed'] ">{{myReactiveForm.get('userDetails.username').value}}
+                                Name is not allowed</small>
+                        </small>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Email :</label>
+                        <input type="text" name="" id="" class=" form-control" formControlName="email"
+                            placeholder="Enter Email Address">
+                        <small class=" text-danger" *ngIf="!myReactiveForm.get('userDetails.email').valid && myReactiveForm.get('userDetails.email').touched">Please Enter Valid Email
+                            <small class=" text-danger"
+                            *ngIf="myReactiveForm.get('userDetails.email').errors['emailNotAllowed'] ">{{myReactiveForm.get('userDetails.email').value}}
+                            email is not allowed</small>
+                        </small>
+                    </div> &nbsp;
+
+                </div>
+                <div class="form-group h4">
+                    <label for="">Select Course</label>
+                    <select class="form-control" name="" id="" formControlName="Course">
+                        <option value="Angular">Angular</option>
+                        <option value="React">React</option>
+                        <option value="view">View</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="">Gender</label>
+                    <div class="custome-control custom-radio" *ngFor="let genderss of genders">
+                        <input type="radio" id="{{genderss.id}}" name="" formControlName="gender"
+                            value="{{genderss.value}}" class="custome-control-input">
+                        <label for="{{genderss.id}}" class="custome-control-lable">{{genderss.value}}</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button class="btn btn-success form-control" [disabled]="btndisable">Submit</button>
+                    <small class=" text-danger" *ngIf="!myReactiveForm.valid && myReactiveForm.touched"> All field are
+                        mandatory</small>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

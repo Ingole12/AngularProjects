@@ -8,6 +8,11 @@ import { Product } from 'src/app/models/procuct';
 })
 export class HookparentComponent implements OnInit {
  uid:number;
+ appchildExist: boolean = true;
+
+ destroy() {
+  this.appchildExist = false;
+ }
 car=[
   {cName:'Venue',bName:'Hyundai'},
   {cName:"Swift",bName:'Maruti Suzuki'},

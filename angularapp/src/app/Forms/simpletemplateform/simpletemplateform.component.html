@@ -1,0 +1,55 @@
+<div class="bg-image img-responsive" style="background-image: url('https://i.pinimg.com/originals/81/64/fc/8164fc57f10493ab84efb8d2aa71a6fa.jpg'); height: 100vh ; background-repeat: no-repeat; background-size: cover;">
+  <!-- <div class="container border border-danger border-4 "></div> -->
+      <div class="border border-bottom-0 border-start-0 border-end-0 border-1">
+         <div class="container col-md-5 mt-5 text-left rounded shadow   bg-dark text-white  ">
+          <form (ngSubmit)="OnSubmit(myForm)" #myForm="ngForm" >
+            <div ngModelGroup="userDetails" #userDetails='ngModelGroup'>
+              <div class="mb-3"> 
+                <label for="exampleInputEmail1" class="form-label h4">Email address</label>
+                <input type="email" class="form-control" #email='ngModel' name="email" email id="email" aria-describedby="emailHelp" ngModel>
+                <small *ngIf="!email.valid && email.touched" class="text-danger">Enter Valid Email </small>
+                <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label h4">User Name </label>
+                <input type="text" class="form-control" name="username" id="username" placeholder="Enter User Name" [(ngModel)]="username">
+                <small *ngIf="username">user name is : {{username}}</small>
+              </div>
+              <small *ngIf="!userDetails.valid && userDetails.touched"> Please Enter Valid Details</small>
+            </div>
+  
+              <div class="form-group h4">
+                  <label for="">Select Course</label>
+                  <select class="form-control" name="Course" id="" [ngModel]="defaultvalue">
+                      <option value="Angular" >Angular</option>
+                      <option value="React">React</option>
+                      <option value="view">View</option>
+                  </select>
+              </div>
+
+  
+            <div class="form-group">
+              <div class="custome-control custom-radio" *ngFor="let genderss of genders">
+                <input type="radio" id="{{genderss.id}}" name="genderss" value="{{genderss.value}}" [ngModel]='genderdefault' class="custome-control-input">
+                <label for="{{genderss.id}}" class="custome-control-lable">{{genderss.value}}</label>
+              </div>
+            </div>
+                <div>
+                  <button type="submit"  class="btn btn-primary ">Submit</button>
+                </div>
+              
+              <div class="row justify-content-center mt-2" *ngIf="submitted">
+                 <div class="col-md-6 rounded shadow py-4">
+                  <h2>Form Data </h2>
+                  <p>User Name: <strong >{{employee.username}}</strong></p>
+                  <p>Email : <strong>{{employee.email}}</strong></p>
+                  <p>Course: <strong>{{employee.course}}</strong></p>
+                  <p>Gender: <strong>{{employee.gender}}</strong></p>
+                 </div>
+              </div>
+            </form>
+         
+      
+  </div>
+</div>
+</div>

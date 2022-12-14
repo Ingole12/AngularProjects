@@ -20,11 +20,11 @@
 <p> Enter Product Price: <input placeholder="Product Price" [(ngModel)]="price" type="text" name="" id=""></p>
 
 <button class="btn btn-primary " (click)="updateProduct()">Update Product</button>
-<app-hooks  [cars]="carid" [parentData]="data" [product]="product"></app-hooks>
+<app-hooks *ngIf="appchildExist"  [cars]="carid" [parentData]="data" [product]="product">
+     <h1 > This is child content coming form parent component </h1>
+</app-hooks>
 
-
-
-
-
+<button class="btn btn-danger" (click)="destroy()">Destroy component</button>
+ 
 
 <!-- [userid]="uid" -->

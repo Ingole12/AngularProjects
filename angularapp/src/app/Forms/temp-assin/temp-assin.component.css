@@ -1,0 +1,17 @@
+input.ng-invalid.ng-touched {
+    border: 2px solid red;
+    box-shadow: 4px 0 15px #d0474721;
+}
+.bg-image {
+    background-image: url('https://i.pinimg.com/736x/29/cd/43/29cd43acc0ee8ae3b8967a77d82262dc.jpg');
+    /* filter: blur(8px);
+    -webkit-filter: blur(8px); */
+  
+    /* Full height */
+    height: 100vh;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

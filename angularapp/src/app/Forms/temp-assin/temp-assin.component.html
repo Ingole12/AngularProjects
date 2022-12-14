@@ -1,0 +1,47 @@
+<!-- <p>temp-assin works!</p> -->
+<div class="container-fluid bg-image p-4  text-white">
+    <div class="container col-md-6 text-center "><small class="h2"> Template Forms Assignment </small><br>
+        <small class=" text-danger">* Mandatory Fields</small>
+    </div>
+    <div class="container d-flex flex-row justify-content-around">
+        <div class=" col-sm-4 rounded-4 border border-white border-3 shadow p-4 mt-md-4 text-right bg-dark text-white">
+            <form action="" (ngSubmit)="show(data)" #data="ngForm">
+                <div class="mb-3 ">
+                    <label for="formGroupExampleInput" class="form-label">* Email</label>
+                    <input type="email" class="form-control" required id="formGroupExampleInput" #email='ngModel' email
+                        placeholder="Please Enter Email" name="email" ngModel>
+                    <small *ngIf="email.invalid && email.touched" class="text-danger">Enter Valid Email </small>
+                </div>
+                <div class="mb-3 form-group">
+                    <label for="">Select Subscription</label>
+                    <select class="form-control" name="subscription" id="" [(ngModel)]="selopn">
+                        <option value="Basic">Basic</option>
+                        <option value="Advanced">Advanced</option>
+                        <option value="Pro">Pro</option>
+                    </select>
+                </div>
+                <div class="mb-3 form-group">
+                    <label for="formGroupExampleInput2" class="form-label">* Password</label>
+                    <input type="password" class="form-control" id="formGroupExampleInput2"
+                        placeholder="Please Enter Password" required name="password" #password="ngModel"
+                        [(ngModel)]="mypass">
+                    <small class=" text-danger" *ngIf="password.invalid && password.touched">Please Enter Right
+                        Password</small>
+                </div>
+                <!-- <small class=" text-danger" *ngIf="data.invalid  && data.touched">Please Fill All Fields</small> -->
+                <div class="mb-3 form-group">
+                    <button class="btn btn-success">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div *ngIf="submitted"
+            class=" col-sm-4 rounded-4 border border-white border-3 shadow p-4 mt-md-4 text-right bg-dark text-white">
+            <div>
+                <label for="" class="h2 text-warning">Form Data</label>
+                <p> Email:&nbsp;{{obj.email}}</p>
+                <p>Subscription:&nbsp;{{obj.subscription}}</p>
+                <p>Password:&nbsp;{{obj.password}}</p>
+            </div>
+        </div>
+    </div>
+</div>

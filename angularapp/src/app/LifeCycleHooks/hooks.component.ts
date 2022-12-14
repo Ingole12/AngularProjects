@@ -7,12 +7,14 @@ import { Product } from '../models/procuct';
   templateUrl: './hooks.component.html',
   styleUrls: ['./hooks.component.css']
 })
-export class HooksComponent implements OnInit, OnChanges,DoCheck {
+export class HooksComponent implements OnInit, OnChanges,DoCheck{
   // @Input() userid: number;
   @Input() cars:any[]=[];
   @Input() parentData:string;
   @Input() product:Product;
   pi;
+
+  
   constructor() {
     this.pi = 3.14;
     console.log("HooksComponent constructor called");
@@ -42,9 +44,23 @@ export class HooksComponent implements OnInit, OnChanges,DoCheck {
     }
   }
    // hooks 
+   counter;
+num:number = 1;
   ngOnInit() {
     console.log("HooksComponent ngOnInit called");
     // console.log(this.cars);
     //call api  
+
+    this.counter = setInterval(() => {
+      this.num = this.num + 1 ;
+      console.log(this.num);
+      // api 
+    }, 1000)
   }
 }
+
+
+// ngOnDestroy(): void {
+//   console.log("ngOnDestroy");
+//   clearInterval(this.counter);
+// }
