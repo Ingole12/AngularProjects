@@ -25,8 +25,9 @@ import { HooksComponent } from './LifeCycleHooks/hooks.component';
 import { HookparentComponent } from './LifeCycleHooks/hookparent/hookparent.component';
 import { DirectiveAssinComponent } from './directive-assin/directive-assin.component';
 import { SimpletemplateformComponent } from './Forms/simpletemplateform/simpletemplateform.component';
-import { ReFormComponent } from './Reactive/re-form/re-form.component';
 import { TempAssinComponent } from './Forms/temp-assin/temp-assin.component';
+import { ReFormComponent } from './Reactive/re-form/re-form.component';
+import { FormassinComponent } from './Forms/formassin/formassin.component';
 
 
 @NgModule({
@@ -52,12 +53,13 @@ import { TempAssinComponent } from './Forms/temp-assin/temp-assin.component';
     DirectiveAssinComponent,
     SimpletemplateformComponent,
     TempAssinComponent,
-    ReFormComponent
+    ReFormComponent,
+    FormassinComponent
   ],
   imports: [ // all modules
     BrowserModule,AppRoutingModule,FormsModule,ReactiveFormsModule
   ],
   providers: [],// all services 
-  bootstrap: [ReFormComponent] // default loading component hearer
+  bootstrap: [FormassinComponent] // default loading component hearer
 })
 export class AppModule { }

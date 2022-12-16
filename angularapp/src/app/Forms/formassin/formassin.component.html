@@ -1,0 +1,262 @@
+<div class="row  container-fluid  text-dark text-center bg-image pt-1 pb-1">
+    <p class="h3">Template-Driven Registration Form </p>
+    <div
+        class="container col-md-5 justify-content-center border border-2 border-light rounded shadow shadow-lg bg-dark text-white">
+        <form class=" p-4 " (ngSubmit)="OnSubmit(data)" #data="ngForm">
+            <div class="row mb-3">
+                <label for="" class="col-sm-4 col-form-label">First Name<small class=" text-danger"> *</small></label>
+                <div class="col-sm-8">
+                    <input type="text" name="firstName" required minlength="5" maxlength="5" class="form-control"
+                        placeholder="First Name" #firstName="ngModel" ngModel>
+                    <small class="text-danger shadow-lg" *ngIf="!firstName.valid && firstName.touched ">Name Should Be
+                        Minimum 5 char</small>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="" class="col-sm-4 col-form-label">Last Name</label>
+                <div class="col-sm-8">
+                    <input type="text" name="lastName" maxlength="10" class="form-control" placeholder="Last Name"
+                        #lastName="ngModel" ngModel>
+                    <small class=" text-info">Last Name Maximum 10 char</small>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="" class="col-sm-4 col-form-label">Age<small class=" text-danger"> *</small></label>
+                <div class="col-sm-8">
+                    <input type="number" name="age" class="form-control" required min="17" pattern="[0-9]{2}" max="20"
+                        #age="ngModel" placeholder="Age Between 17 to 20" ngModel>
+                    <small class="text-info">Please Enter Age Between 17 to 20</small><br>
+                    <label for="" class=" text-danger shadow-lg" *ngIf="age.invalid && age.touched">Age is
+                        required</label>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="inputEmail3" class="col-sm-4 col-form-label">Email<small class=" text-danger">
+                        *</small></label>
+                <div class="col-sm-8">
+                    <input type="email" class="form-control" name="email" required email #emaildata="ngModel"
+                        id="inputEmail3" placeholder="e.g. abc@gmail.com" ngModel>
+                    <label for="" class=" text-danger shadow-lg" *ngIf="emaildata.invalid && emaildata.touched">Please
+                        Enter Valid Email </label>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="" class="col-sm-4 col-form-label">Phone</label>
+                <div class="col-sm-8">
+                    <input type="text" name="phone" class="form-control" #phone="ngModel" pattern="[0-9]{10}"
+                        maxlength="10" minlength="10" placeholder="Mobile Number" ngModel>
+                    <label for="" class="text-danger shadow-lg" *ngIf="phone.invalid">Please Enter Max 10 Number
+                    </label>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="" class="col-sm-4 col-form-label">City</label>
+                <div class="col-sm-8">
+                    <select id="inputState" class="form-control" name="city" ngModel>
+                        <option value="">--Select--</option>
+                        <option>Mumbai</option>
+                        <option>Kolkata</option>
+                        <option value="">Delhi</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="" class="col-sm-4 col-form-label">Gender<small class=" text-danger"> *</small></label>
+                <div *ngFor="let gen of gender" class="pt-2 col-sm-2">
+                    <input type="radio" name="gen" id="{{gen.name}}" value="{{gen.name}}" required #gender="ngModel"
+                        ngModel>
+                    <label for="gen.name">&nbsp;{{gen.name}}</label>
+                </div>
+                <small class=" text-danger" *ngIf="gender.invalid">Gender is required</small>
+            </div>
+
+            <div class="row mb-3">
+                <label for="inputPassword3" class="col-sm-4 col-form-label">Password<small class=" text-danger">
+                        *</small></label>
+                <div class="col-sm-8">
+                    <input type="password" class="form-control" name="password" required id="inputPassword3"
+                        #password="ngModel" placeholder="Password" ngModel>
+                    <small class=" text-danger" *ngIf="password.invalid && password.touched">Enter Password</small>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label for="inputPassword3" class="col-sm-4 col-form-label">Confirm Password<small class=" text-danger">
+                        *</small></label>
+                <div class="col-sm-8">
+                    <input type="password" class="form-control" name="cPassword" required #cpassword="ngModel"
+                        placeholder="Confirm Password" ngModel>
+                    <small class=" text-danger" *ngIf="cpassword.invalid && cpassword.touched">Enter Confirm
+                        Password</small> &nbsp; &nbsp;
+                    <small class=" text-danger shadow-lg "
+                        *ngIf="password.value!=cpassword.value && cpassword.touched ">Password does not match</small>
+                </div>
+            </div>
+            <!-- <small *ngIf="validvar">Please fill add details</small> -->
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <button type="submit" class="btn btn-success form-control" [disabled]="validvar">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="container col-md-6 justify-content-center border border-2 border-light rounded shadow h-25 "
+        *ngIf="validvar">
+        <label for="" class="h4">User Data</label>
+        <table class=" table table-bordered table-light table-responsive ">
+            <thead class=" table-info">
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Age</th>
+                <th>Email Id</th>
+                <th>Mobile No</th>
+                <th>City</th>
+                <th>Gender</th>
+                <th>Password</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let tabaleObj of newarray ">
+                    <td>{{tabaleObj.firstName}}</td>
+                    <td>{{tabaleObj.lastName}}</td>
+                    <td>{{tabaleObj.age}}</td>
+                    <td>{{tabaleObj.email}}</td>
+                    <td>{{tabaleObj.phone}}</td>
+                    <td>{{tabaleObj.city}}</td>
+                    <td>{{tabaleObj.gen}}</td>
+                    <td>{{tabaleObj.password}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+<div class="row container-fluid text-white bg-dark mt-5 pt-2 pb-2">
+    <div class="h1 text-warning text-center">Reactive Registration forms </div>
+    <!-- <div class="h1 text-danger text-center">hay Reactive</div> -->
+    <div class="container col-md-5 justify-content-center border border-2 border-light rounded bg-new text-dark">
+        <form class=" p-1 " [formGroup]=reactiveForm >
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">First Name<small class=" text-danger"> *</small></label>
+                <div class="col-sm-8">
+                    <input type="text" formControlName="fName" class="form-control"
+                        placeholder="First Name">
+                    <small class="text-danger shadow-lg" *ngIf="!reactiveForm.get('fName').valid && reactiveForm.get('fName').touched">
+                        <small class=" text-danger"
+                                *ngIf="reactiveForm.get('fName').errors['required']">Name Should Be
+                                Minimum 5 char</small>
+                        </small>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="" class="col-sm-4 col-form-label">Last Name</label>
+                <div class="col-sm-8">
+                    <input type="text" formControlName="lName" class="form-control" placeholder="Last Name">
+                    <small class=" text-dark">Last Name Maximum 10 char</small>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Age<small class=" text-danger"> *</small></label>
+                <div class="col-sm-8">
+                    <input type="number" class="form-control" formControlName="age" 
+                   placeholder="Age Between 17 to 20">
+                    <small class="text-dark">Please Enter Age Between 17 to 20</small><br>
+                    <label class=" text-danger shadow-lg" *ngIf="reactiveForm.get('age').invalid && reactiveForm.get('age').touched">Age is
+                        required</label>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label  class="col-sm-4 col-form-label">Email<small class=" text-danger">
+                        *</small></label>
+                <div class="col-sm-8">
+                    <input type="email" class="form-control" formControlName="email" email
+                       placeholder="e.g. abc@gmail.com">
+                    <label for="" class=" text-danger shadow-lg" *ngIf="reactiveForm.get('email').invalid && reactiveForm.get('email').touched">Please
+                        Enter Valid Email </label>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="" class="col-sm-4 col-form-label">Phone</label>
+                <div class="col-sm-8">
+                    <input type="text" formControlName="phone" class="form-control" placeholder="Mobile Number" >
+                    <label for="" class="text-danger shadow-lg" *ngIf="reactiveForm.get('phone').invalid && reactiveForm.get('phone').touched">Please Enter Max 10 Number
+                    </label>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="" class="col-sm-4 col-form-label">City</label>
+                <div class="col-sm-8">
+                    <select class="form-control" formControlName="city">
+                        <option value="">--Select--</option>
+                        <option>Mumbai</option>
+                        <option>Kolkata</option>
+                        <option value="">Delhi</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="" class="col-sm-4 col-form-label">Gender<small class=" text-danger"> *</small></label>
+                <div *ngFor="let gen of gender" class="pt-2 col-sm-2">
+                    <input type="radio" formControlName="gender" value="{{gen.name}}">
+                    <label for="gen.name">&nbsp;{{gen.name}}</label>
+                </div>
+                <small class=" text-danger" *ngIf="reactiveForm.get('gender').invalid && reactiveForm.get('gender').touched">Gender is required</small>
+            </div>
+
+            <div class="row mb-3">
+                <label for="inputPassword3" class="col-sm-4 col-form-label">Password<small class=" text-danger">
+                        *</small></label>
+                <div class="col-sm-8">
+                    <input type="password" class="form-control" formControlName="password" placeholder="Password">
+                    <small class=" text-danger" *ngIf="reactiveForm.get('password').invalid && reactiveForm.get('password').touched">Enter Password</small>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label for="inputPassword3" class="col-sm-4 col-form-label">Confirm Password<small class=" text-danger">
+                        *</small></label>
+                <div class="col-sm-8">
+                    <input type="password" class="form-control" formControlName="cpassword"
+                        placeholder="Confirm Password" >
+                    <small class=" text-danger" *ngIf="reactiveForm.get('cpassword').invalid && reactiveForm.get('cpassword').touched">Enter Confirm
+                        Password</small> &nbsp; &nbsp;
+                    <small class=" text-danger shadow-lg "
+                        *ngIf="reactiveForm.get('password').value!=reactiveForm.get('cpassword').value && reactiveForm.get('cpassword').touched ">Password does not match</small>
+                </div>
+            </div>
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <button type="submit" class="btn btn-success form-control" (click)="Onclick()" >Submit</button>
+                <!-- [disabled]="showtable" -->
+            </div>
+        </form>
+    </div>
+    <div class="container col-md-6 justify-content-center border border-2 border-light rounded shadow-lg h-25 bg-new flex-wrap" *ngIf="showtable">
+        <div  class="h4 text-dark text-center">
+            <label for="">Reactive Form User Data</label>
+        </div>
+        <table class=" table table-bordered  table-responsive ">
+            <thead class=" table-info">
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Age</th>
+                <th>Email Id</th>
+                <th>Mobile No</th>
+                <th>City</th>
+                <th>Gender</th>
+                <th>Password</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let tabaleObj of reactiveFormarray ">
+                    <td>{{tabaleObj.fName}}</td>
+                    <td>{{tabaleObj.lName}}</td>
+                    <td>{{tabaleObj.age}}</td>
+                    <td>{{tabaleObj.email}}</td>
+                    <td>{{tabaleObj.phone}}</td>
+                    <td>{{tabaleObj.city}}</td>
+                    <td>{{tabaleObj.gender}}</td>
+                    <td>{{tabaleObj.password}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

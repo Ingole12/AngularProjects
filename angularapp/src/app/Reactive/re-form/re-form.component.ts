@@ -1,6 +1,6 @@
 import { summaryFileName } from '@angular/compiler/src/aot/util';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormArrayName, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { resolve } from 'url';
 
@@ -11,7 +11,7 @@ import { resolve } from 'url';
 })
 export class ReFormComponent implements OnInit {
   myReactiveForm: FormGroup;
-  // btndisable=true;
+  btndisable:boolean=false;
 
   genders = [
     { id: '1', value: 'Male' },
@@ -55,14 +55,23 @@ export class ReFormComponent implements OnInit {
         'email': new FormControl('', [Validators.required, Validators.email], this.NaEmails)
       }),
       'Course': new FormControl('Angular', []),
-      'gender': new FormControl('Male', [])
-
+      'gender': new FormControl('Male', []),
+       'skills': new FormArray([
+        new FormControl(null,Validators.required),
+       ])
     })
   }
 
   OnSubmit() {
+    this.btndisable=true;
     console.log(this.myReactiveForm);
-    console.log(this.myReactiveForm.get('username').value);
+    // console.log(this.myReactiveForm.get('username').value);
+  }
+  OnAddSkill(){
+    (<FormArray>this.myReactiveForm.get('skills')).push(new FormControl(null,Validators.required));
+  }
+  OnRemoveSkill(){
+    (<FormArray>this.myReactiveForm.get('skills')).removeAt((<FormArray>this.myReactiveForm.get('skills')).length-1);
   }
   NaNames(control: FormControl) {
     //this.notAllowedNames= api/getNames

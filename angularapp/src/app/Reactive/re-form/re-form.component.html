@@ -1,8 +1,8 @@
-<div class="container border">
+<div class="container border bg-dark text-warning text-capitalize">
     <div class=" row justify-content-center border">
         <div class="col-md-6 text-left rounded py-5 ">
             <h3>Reactive Form Learning</h3>
-            <form [formGroup]="myReactiveForm" (ngSubmit)="OnSubmit()" action="">
+            <form [formGroup]="myReactiveForm" action="">
                 <div class="form-group" formGroupName="userDetails">
 
                     <div class="from-group">
@@ -25,10 +25,12 @@
                         <label for="">Email :</label>
                         <input type="text" name="" id="" class=" form-control" formControlName="email"
                             placeholder="Enter Email Address">
-                        <small class=" text-danger" *ngIf="!myReactiveForm.get('userDetails.email').valid && myReactiveForm.get('userDetails.email').touched">Please Enter Valid Email
+                        <small class=" text-danger"
+                            *ngIf="!myReactiveForm.get('userDetails.email').valid && myReactiveForm.get('userDetails.email').touched">Please
+                            Enter Valid Email
                             <small class=" text-danger"
-                            *ngIf="myReactiveForm.get('userDetails.email').errors['emailNotAllowed'] ">{{myReactiveForm.get('userDetails.email').value}}
-                            email is not allowed</small>
+                                *ngIf="myReactiveForm.get('userDetails.email').errors['emailNotAllowed'] ">{{myReactiveForm.get('userDetails.email').value}}
+                                email is not allowed</small>
                         </small>
                     </div> &nbsp;
 
@@ -42,20 +44,40 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="">Gender</label>
+                    <label for="" class="h4">Gender</label>
                     <div class="custome-control custom-radio" *ngFor="let genderss of genders">
                         <input type="radio" id="{{genderss.id}}" name="" formControlName="gender"
                             value="{{genderss.value}}" class="custome-control-input">
                         <label for="{{genderss.id}}" class="custome-control-lable">{{genderss.value}}</label>
                     </div>
                 </div>
-
+                <div class="form-group" formArrayName="skills">
+                    <label for="">
+                        <h4>Skills</h4>
+                    </label>
+                    <ng-container *ngFor="let skill of myReactiveForm.get('skills').controls;index as i">
+                        <input type="text" class=" form-control mt-2" formControlName="{{i}}" placeholder=" Add Skills">
+                    </ng-container>
+                    <button class=" btn btn-info  btn-add btn-sm mt-4 " (click)="OnAddSkill()"><i
+                            class="btn-add">+</i>Add Skills</button>
+                    <button class=" btn btn-info  btn-add btn-sm mt-4  new" (click)="OnRemoveSkill()"><i
+                            class="btn-add">-</i>Remove 1'st Skill</button>
+                </div>&nbsp;
                 <div class="form-group">
-                    <button class="btn btn-success form-control" [disabled]="btndisable">Submit</button>
-                    <small class=" text-danger" *ngIf="!myReactiveForm.valid && myReactiveForm.touched"> All field are
-                        mandatory</small>
+                    <button class="btn btn-success form-control" (click)="OnSubmit()">Submit</button>
+                    <!-- <small class=" text-danger" *ngIf="!myReactiveForm.valid && myReactiveForm.touched"> All field are mandatory</small> -->
                 </div>
             </form>
+        </div>
+        <div class="row justify-content-center mt-2" *ngIf="btndisable">
+            <div class="col-md-6 rounded shadow py-5">
+                <h2>Reactive From Data </h2>
+                <p>User Name :<strong>{{myReactiveForm.get('userDetails.username').value}}</strong></p>
+                <p>User Email :<strong>{{myReactiveForm.get('userDetails.email').value}}</strong></p>
+                <p>Selected Course :<strong>{{myReactiveForm.get('Course').value}}</strong></p>
+                <p>Gender :<strong>{{myReactiveForm.get('gender').value}}</strong></p>
+                <p>Skills :<strong>{{myReactiveForm.get('skills').value}}</strong></p>
+            </div>
         </div>
     </div>
 </div>
