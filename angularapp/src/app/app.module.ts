@@ -28,6 +28,9 @@ import { SimpletemplateformComponent } from './Forms/simpletemplateform/simplete
 import { TempAssinComponent } from './Forms/temp-assin/temp-assin.component';
 import { ReFormComponent } from './Reactive/re-form/re-form.component';
 import { FormassinComponent } from './Forms/formassin/formassin.component';
+import { Servicecomp1Component } from './services/servicecomp1/servicecomp1.component';
+import { Servicecomp2Component } from './services/servicecomp2/servicecomp2.component';
+import { DemoService } from './services/demo.service';
 
 
 @NgModule({
@@ -54,12 +57,14 @@ import { FormassinComponent } from './Forms/formassin/formassin.component';
     SimpletemplateformComponent,
     TempAssinComponent,
     ReFormComponent,
-    FormassinComponent
+    FormassinComponent,
+    Servicecomp1Component,
+    Servicecomp2Component
   ],
   imports: [ // all modules
     BrowserModule,AppRoutingModule,FormsModule,ReactiveFormsModule
   ],
-  providers: [],// all services 
-  bootstrap: [FormassinComponent] // default loading component hearer
+  providers: [DemoService],// all services 
+  bootstrap: [Servicecomp1Component,Servicecomp2Component] // default loading component hearer
 })
 export class AppModule { }

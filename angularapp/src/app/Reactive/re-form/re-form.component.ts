@@ -1,6 +1,6 @@
 import { summaryFileName } from '@angular/compiler/src/aot/util';
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormArrayName, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormArrayName, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { resolve } from 'url';
 
@@ -20,7 +20,7 @@ export class ReFormComponent implements OnInit {
   ];
   notAllowedNames = ['Codemind', 'Technology'];
 
-  constructor() {
+  constructor(private _fb:FormBuilder) {
     this.createForm();
   }
 
@@ -49,16 +49,26 @@ export class ReFormComponent implements OnInit {
 
   }
   createForm() {
-    this.myReactiveForm = new FormGroup({
-      'userDetails': new FormGroup({
-        'username': new FormControl('', [Validators.required, this.NaNames.bind(this)]),
-        'email': new FormControl('', [Validators.required, Validators.email], this.NaEmails)
+    // this.myReactiveForm = new FormGroup({
+    //   'userDetails': new FormGroup({
+    //     'username': new FormControl('', [Validators.required, this.NaNames.bind(this)]),
+    //     'email': new FormControl('', [Validators.required, Validators.email], this.NaEmails)
+    //   }),
+    //   'Course': new FormControl('Angular', []),
+    //   'gender': new FormControl('Male', []),
+    //    'skills': new FormArray([
+    //     new FormControl(null,Validators.required),
+    //    ])
+    // })
+
+    this.myReactiveForm = this._fb.group({
+      userDetails:this._fb.group({
+        username:['',Validators.required],
+        email:['',Validators.required]
       }),
-      'Course': new FormControl('Angular', []),
-      'gender': new FormControl('Male', []),
-       'skills': new FormArray([
-        new FormControl(null,Validators.required),
-       ])
+      Course:['Angular'],
+      gender:['Male'],
+      skills:this._fb.array([])
     })
   }
 
