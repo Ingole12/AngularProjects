@@ -7,10 +7,11 @@ import { DemoService } from '../demo.service';
   styleUrls: ['./servicecomp2.component.css']
 })
 export class Servicecomp2Component implements OnInit {
-
+  products:any={};
   constructor(private serviceobj:DemoService) { }
 
   ngOnInit() {
+    this.products=this.serviceobj.newarray;
   }
   Onsubmit(){
     this.serviceobj.display();

@@ -1,2 +1,54 @@
-<p>servicecomp1 works!</p>
- <button class=" btn btn-primary" (click)="Onsubmit()">Subscibe</button> 
+<!-- <button class=" btn btn-primary" (click)="Onsubmit()">Subscibe</button>
+<ng-container *ngFor="let item of products"><br>
+    Product Id: <strong class=" text-success">{{item.id}}</strong>
+    Product Name: <strong class=" text-success">{{item.name}}</strong>
+</ng-container> -->
+<div class=" table-responsive">
+    <table align="center" cellpadding="10px" class=" align-middle table table-bordered border-white table-dark">
+        <caption>10 User Data</caption>
+        <thead class="table-light border-dark ">
+            <tr>
+                <th rowspan="3">Id</th>
+                <th rowspan="3">Name</th>
+                <th rowspan="3">Email</th>
+                <th colspan="6" >Address</th>
+                <th rowspan="3">Phone</th>
+                <th rowspan="3">WebSite</th>
+                <th colspan="3">Company</th>
+            </tr>
+            <tr>
+                <th rowspan="2">Street</th>
+                <th rowspan="2">Suite</th>
+                <th rowspan="2">City</th>
+                <th rowspan="2">Zipcode</th>
+                <th colspan="2">geo</th>
+                <th rowspan="2">Name</th>
+                <th rowspan="2">CatchPhrase</th>
+                <th rowspan="2">Bs</th>
+            </tr>
+            <tr>
+                <th rowspan="1">lat</th>
+                <th rowspan="1">lng</th>
+            </tr>
+            
+        </thead>
+        <tbody>
+            <tr *ngFor="let one of getdata">
+                <td>{{one.id}}</td>
+                <td>{{one.name}}</td>
+                <td>{{one.email}}</td>
+                <td>{{one.address.street}}</td>
+                <td>{{one.address.suite}}</td>
+                <td>{{one.address.city}}</td>
+                <td>{{one.address.zipcode}}</td>
+                <td>{{one.address.geo.lat}}</td>
+                <td>{{one.address.geo.lng}}</td>
+                <td>{{one.phone}}</td>
+                <td>{{one.website}}</td>
+                <td>{{one.company.name}}</td>
+                <td>{{one.company.catchPhrase}}</td>
+                <td>{{one.company.bs}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

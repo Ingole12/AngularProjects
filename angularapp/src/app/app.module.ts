@@ -31,6 +31,7 @@ import { FormassinComponent } from './Forms/formassin/formassin.component';
 import { Servicecomp1Component } from './services/servicecomp1/servicecomp1.component';
 import { Servicecomp2Component } from './services/servicecomp2/servicecomp2.component';
 import { DemoService } from './services/demo.service';
+import{HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -62,7 +63,7 @@ import { DemoService } from './services/demo.service';
     Servicecomp2Component
   ],
   imports: [ // all modules
-    BrowserModule,AppRoutingModule,FormsModule,ReactiveFormsModule
+    BrowserModule,AppRoutingModule,FormsModule,ReactiveFormsModule,HttpClientModule
   ],
   providers: [DemoService],// all services 
   bootstrap: [Servicecomp1Component,Servicecomp2Component] // default loading component hearer

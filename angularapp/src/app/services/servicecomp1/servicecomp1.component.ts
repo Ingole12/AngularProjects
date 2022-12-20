@@ -8,12 +8,22 @@ import { DemoService } from '../demo.service';
 })
 export class Servicecomp1Component implements OnInit {
 
-  constructor(private serviceobj:DemoService) { }
+  products = {};
+  getdata: any;
+  constructor(private serviceobj: DemoService) {
+
+  }
 
   ngOnInit() {
+    this.products = this.serviceobj.newarray;
+    this.serviceobj.getUserData().subscribe((data) => {
+      console.log(data)
+      this.getdata = data
+    }
+    )
   }
-  Onsubmit(){
-   this.serviceobj.display();
+  Onsubmit() {
+    this.serviceobj.display();
   }
 
 }

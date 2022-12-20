@@ -1,2 +1,6 @@
-<p>servicecomp2 works!</p>
-<button class=" btn btn-primary" (click)="Onsubmit()">Subscibe</button> 
+<br>
+<button class=" btn btn-primary" (click)="Onsubmit()">Subscibe</button>  
+<ng-container *ngFor="let item of products"><br>
+    Product Id: <strong class=" text-danger">{{item.id}}</strong>
+    Product Name: <strong class=" text-danger">{{item.name}}</strong>
+</ng-container>
