@@ -32,6 +32,11 @@ import { Servicecomp1Component } from './services/servicecomp1/servicecomp1.comp
 import { Servicecomp2Component } from './services/servicecomp2/servicecomp2.component';
 import { DemoService } from './services/demo.service';
 import{HttpClientModule} from '@angular/common/http';
+import { AssinReactFormComponent } from './Reactive/assin-react-form/assin-react-form.component';
+import { Comp1Component } from './services/comp1/comp1.component';
+import { Comp2Component } from './services/comp2/comp2.component';
+import { Comp3Component } from './services/comp3/comp3.component';
+import { Comp4Component } from './services/comp4/comp4.component';
 
 
 @NgModule({
@@ -60,12 +65,20 @@ import{HttpClientModule} from '@angular/common/http';
     ReFormComponent,
     FormassinComponent,
     Servicecomp1Component,
-    Servicecomp2Component
+    Servicecomp2Component,
+    AssinReactFormComponent,
+    Comp1Component,
+    Comp2Component,
+    Comp3Component,
+    Comp4Component
   ],
   imports: [ // all modules
     BrowserModule,AppRoutingModule,FormsModule,ReactiveFormsModule,HttpClientModule
   ],
   providers: [DemoService],// all services 
-  bootstrap: [Servicecomp1Component,Servicecomp2Component] // default loading component hearer
+  bootstrap: [ Comp1Component,
+    Comp2Component,
+    Comp3Component,
+    Comp4Component] // default loading component hearer
 })
 export class AppModule { }

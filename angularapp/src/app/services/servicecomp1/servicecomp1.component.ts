@@ -19,9 +19,11 @@ export class Servicecomp1Component implements OnInit {
     this.serviceobj.getUserData().subscribe((data) => {
       console.log(data)
       this.getdata = data
-    }
-    )
-  }
+    });
+    this.serviceobj.getPost().subscribe((result)=>{
+     console.log(result);
+    })
+  } 
   Onsubmit() {
     this.serviceobj.display();
   }

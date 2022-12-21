@@ -1,0 +1,36 @@
+
+<!-- <div class="box container">
+    User Name: <strong>{{userName}}</strong>
+    <br>
+    <br>
+    <input type="text" name="" placeholder="Update Name" #uname id="">
+    <button (click)="updateUserName(uname)">Update</button>
+</div> -->
+
+<!-- <div class=" container h3" *ngFor="let one of userName">
+    <p>comp2 works!</p>
+     <li>Product Name: &nbsp; &nbsp;{{one.productName}}</li>
+    <li>Unit Cost: &nbsp; &nbsp;{{one.unitCost}}</li>
+    <li>Quantity: &nbsp; &nbsp;{{one.quantity}}</li>
+    <li>Order Date: &nbsp; &nbsp;{{one.orderDate}}</li>
+</div>  -->
+
+<div class=" container" *ngIf="userName.length!=0">
+    <p>comp4 works!</p>
+ <table class="table table-bordered table-dark">
+     <thead class=" table table-light text-dark">
+        <th>Product Name</th>
+        <th>Unit Cost</th>
+        <th>Quantity</th>
+        <th>Order Date</th>
+     </thead>
+     <tbody>
+        <tr *ngFor="let one of userName">
+            <td>{{one.productName}}</td>
+            <td>{{one.unitCost}}</td>
+            <td>{{one.quantity}}</td>
+            <td>{{one.orderDate}}</td>
+        </tr>
+     </tbody>
+ </table>
+</div>

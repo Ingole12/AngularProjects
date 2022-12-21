@@ -5,17 +5,22 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class DemoService {
-  apiURL='https://jsonplaceholder.typicode.com/users';
+  apiURL='https://jsonplaceholder.typicode.com/';
 newarray:any=[
   {name:'Laptop',id:'101'},
   {name:'Mobile',id:'102'},
   {name:'TV',id:'103'}
 ]
-  constructor(private http:HttpClient) { 
-
+  constructor(private http:HttpClient) {  }
+  //This method will return the api data 
+  getUserData()
+  {
+    let user='users';
+   return this.http.get(this.apiURL+user);
   }
-  getUserData(){
-   return this.http.get(this.apiURL);
+  getPost(){
+    let post='posts';
+   return this.http.get(this.apiURL+post);
   }
 
   display(){
