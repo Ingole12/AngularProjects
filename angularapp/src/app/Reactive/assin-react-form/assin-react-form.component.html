@@ -1,30 +1,47 @@
-<div class=" container-fluid border bg-dark text-warning text-capitalize">
-    <div class=" p-4 m-5  container bg-light border border-4 border-warning rounded-4 shadow">
-        <!-- <div class="col-md-6 text-left rounded py-5 "> -->
-        <form  [formGroup]="myReactiveForm" >
+<div class=" container-fluid bg-dark text-white p-5 mb-5">
+    <div class="container custom-wrapper col-md-5 py-5 border border-2 border-light rounded-5 text-warning p-3 mb-5">
+        <form class=" form-group" [formGroup]="myReactiveForm">
+            <strong class=" text-white">Reactive Form With Validation (Custom,Async)</strong>
             <div class=" mb-3 row">
-                <label for="" class="col-sm-2">Project Name</label>
-                <div class="col-md-5">
-                    <input type="text" class="form-control" name="" id="">
+                <label for="" class="col-sm-4">Project Name</label>
+                <div class="col-md-8">
+                    <input type="text" placeholder=" Enter Project Name " formControlName="projectName"
+                        class="form-control" name="" id="">
+                    <small class=" text-danger"
+                        *ngIf="myReactiveForm.get('projectName').invalid && myReactiveForm.get('projectName').touched"> &nbsp; &nbsp;
+                        <!-- <small class="text-danger"
+                            *ngIf="myReactiveForm.get('projectName').errors['required']">Please
+                            Enter Valid Project Name</small> -->
+                        <small class="text-danger"
+                            *ngIf="myReactiveForm.get('projectName').errors['nameNotAllowed']">Test Not allowed </small>
+                    </small>
                 </div>
             </div>
             <div class=" mb-3 row">
-                <label for="" class="col-sm-2">Email Id</label>
-                <div class="col-md-5">
-                    <input type="email" class="form-control" id="">
+                <label for="" class="col-sm-4">Email Id</label>
+                <div class="col-md-8">
+                    <input type="email" class="form-control" placeholder="Please Enter Email" formControlName="email"
+                        id="">
+                    <small class=" text-danger"
+                        *ngIf="myReactiveForm.get('email').invalid && myReactiveForm.get('email').touched">Please Enter
+                        Valid Email</small>
                 </div>
             </div>
             <div class=" mb-3 row">
-                <label for="" class="col-sm-2">Project Status</label>
-                <div class="col-md-5">
-                    <input type="text" class="form-control" name="" id="">
+                <label for="" class="col-sm-4">Project Status</label>
+                <div class="col-md-8">
+                    <select name="" id="" class=" form-control" formControlName="projectStatus">
+                        <option value="">--Select--</option>
+                        <option value="">Stable</option>
+                        <option value="">Critical</option>
+                        <option value="">Finished</option>
+                    </select>
                 </div>
             </div>
             <div>
-                <button class="btn btn-success col-md-2">Submit</button>
+                <button class="btn btn-success offset-5 col-md-4" (click)="submit()">Submit</button>
             </div>
-            
+
         </form>
-    <!-- </div> -->
     </div>
 </div>

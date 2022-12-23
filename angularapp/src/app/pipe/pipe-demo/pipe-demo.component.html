@@ -1,0 +1,21 @@
+<p>pipe-demo works!</p>
+<div class=" container h3 "> 
+    <div>
+        Today's Date  :{{toudayDate | date:'fullDate'| uppercase}}
+    </div>
+    <div>
+        get Values  {{obser | async}}
+    </div>
+    <div>
+        Currency Pipe :
+        <div>
+            {{price | currency:'INR'}} <br>
+            {{price | currency:'USD'}} <br>
+            {{price | currency:'EUR'}}
+            {{obj | json}}
+        </div>
+    </div>
+    <div>
+        {{price | count}}
+    </div>
+</div> 

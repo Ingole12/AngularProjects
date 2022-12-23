@@ -63,11 +63,11 @@ export class ReFormComponent implements OnInit {
 
     this.myReactiveForm = this._fb.group({
       userDetails:this._fb.group({
-        username:['',Validators.required],
+        username:['',Validators.required], 
         email:['',Validators.required]
       }),
       Course:['Angular'],
-      gender:['Male'],
+      gender:['Male'], 
       skills:this._fb.array([])
     })
   }

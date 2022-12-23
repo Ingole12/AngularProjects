@@ -1,0 +1,47 @@
+<div class=" d-flex flex-row-reverse">
+    <div class="col-md-4 container m-5">
+        <h2>Table Using Custom Pipe</h2>
+        <table class="table table-bordered border-dark">
+            <thead class="table table-bordered border-2 border-dark">
+               <th scope="col">ID</th>
+               <th scope="col">Name</th>
+               <th scope="col">Gender</th>
+               <th scope="col">DOB</th>
+               <th>City</th>
+            </thead>
+            <tbody>
+               <tr *ngFor="let a of visitor">
+                   <td>{{a.id}}</td>
+                   <td>{{a.name  | gender:a.genders}}</td>
+                   <td>{{a.genders}}</td>
+                   <td>{{a.dob | date:'dd/MM/yyyy'}}</td>
+                   <td>{{a.city}}</td>
+               </tr>
+            </tbody>
+        </table>
+     </div>
+    
+    
+     <div class="col-md-4 container m-5">
+        <h2>Table without Using Pipe</h2>
+        <table class="table table-bordered border-dark">
+            <thead class="table table-bordered border-2 border-dark">
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Gender</th>
+                <th scope="col">DOB</th>
+                <th>City</th>
+            </thead>
+            <tbody>
+               <tr *ngFor="let a of visitor">
+                   <td>{{a.id}}</td>
+                   <td>{{a.name}}</td>
+                   <td>{{a.genders}}</td>
+                   <td>{{a.dob | date:'dd/MM/yyyy'}}</td>
+                   <td>{{a.city}}</td>
+               </tr>
+            </tbody>
+        </table>
+     </div>
+    
+</div>

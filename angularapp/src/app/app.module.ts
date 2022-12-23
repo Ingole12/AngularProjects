@@ -37,6 +37,12 @@ import { Comp1Component } from './services/comp1/comp1.component';
 import { Comp2Component } from './services/comp2/comp2.component';
 import { Comp3Component } from './services/comp3/comp3.component';
 import { Comp4Component } from './services/comp4/comp4.component';
+import { PipeDemoComponent } from './pipe/pipe-demo/pipe-demo.component';
+import { CountPipe } from './pipe/count.pipe';
+import { FilterpipeComponent } from './pipe/filterpipe/filterpipe.component';
+import { FilterPipe } from './pipe/filter.pipe';
+import { PipeAssinComponent } from './pipe/pipe-assin/pipe-assin.component';
+import { GenderPipe } from './pipe/gender.pipe';
 
 
 @NgModule({
@@ -70,15 +76,18 @@ import { Comp4Component } from './services/comp4/comp4.component';
     Comp1Component,
     Comp2Component,
     Comp3Component,
-    Comp4Component
+    Comp4Component,
+    PipeDemoComponent,
+    CountPipe,
+    FilterpipeComponent,
+    FilterPipe,
+    PipeAssinComponent,
+    GenderPipe
   ],
   imports: [ // all modules
     BrowserModule,AppRoutingModule,FormsModule,ReactiveFormsModule,HttpClientModule
   ],
   providers: [DemoService],// all services 
-  bootstrap: [ Comp1Component,
-    Comp2Component,
-    Comp3Component,
-    Comp4Component] // default loading component hearer
+  bootstrap: [ PipeAssinComponent] // default loading component hearer
 })
 export class AppModule { }

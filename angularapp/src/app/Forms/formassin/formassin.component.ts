@@ -13,8 +13,7 @@ export class FormassinComponent implements OnInit {
     { 'id': 1, 'name': 'Male' },
     { 'id': 3, 'name': 'Female' },
     { 'id': 3, 'name': 'Other' }
-  ];
-
+           ];
 
   citye: string = 'Mumbai';
   defgender: string = 'Male';
@@ -22,11 +21,8 @@ export class FormassinComponent implements OnInit {
 
   constructor() {
     this.crateFor();
-
-  }
-
-  ngOnInit() {
-  }
+               }
+  ngOnInit() {}
   newarray: any = [];
   validvar: boolean = false;
   OnSubmit(form: NgForm) {
@@ -51,11 +47,7 @@ export class FormassinComponent implements OnInit {
     form.reset();
   }
 
-
-
   //           Reactive From Methods and variables start hear
-
-
   reactiveForm: FormGroup;
   reactiveFormarray = [];
   showtable:boolean=false;
