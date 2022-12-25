@@ -1,0 +1,11 @@
+.navlink{
+ border: 1px solid black;
+ border-radius: 10px;
+ background-color: aqua;
+}
+.navlink:hover{
+    background-color: rgb(115, 106, 106);
+}
+a{
+    text-decoration: none;
+}

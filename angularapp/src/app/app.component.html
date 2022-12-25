@@ -1,9 +1,8 @@
-<!--The content below is only a placeholder and can be replaced.-->
+<!-- The content below is only a placeholder and can be replaced
 <div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
   </h1>
-  <!-- <app-server></app-server> -->
   <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="> 
 </div>
 
@@ -12,7 +11,7 @@
 <p>Server id :{{serverId}} Status: {{getServerStatus()}}</p>
 <p>button disabled is property binding onclick envent is event binding </p>
 <button [disabled]="allowNewServer" (click)='onclickServer()' class="btn btn-primary">Add Server</button>
-<!-- <img [src='imgurl'] alt='iiiiiiiiiiii'> -->
+<img [src='imgurl'] alt='iiiiiiiiiiii'>
   <div>{{serverCreationStatus}}</div>
 
 <div>
@@ -29,6 +28,92 @@
 <a href="databinding/databinding.component.ts" target="_blank"> Data Binding Assignment </a>
 <app-databinding></app-databinding>
 
-<app-ngswitch></app-ngswitch>
+<app-ngswitch></app-ngswitch> -->
 <!-- <app-server></app-server> -->
+
+
+<header>
+  <!-- This is privious  Routing learning nav tag-->
+  <!-- <nav>        
+    <ul class="nav nav-tabs">
+     <li class="nav-item"><a class="nav-link"  [routerLinkActiveOptions]="{exact:true}"  routerLinkActive='active' routerLink="/login" >Login in</a></li>
+      <li class="nav-item"><a class="nav-link"  routerLinkActive='active' routerLink="aboutus/">About Us</a></li>
+      <li class="nav-item"><a class="nav-link" routerLinkActive='active' routerLink="contactus/">Contact Us</a></li> 
+      <li class="nav-item"><a class="nav-link" routerLinkActive='active' routerLink="product/">Product</a></li>
+    </ul> 
+  </nav>-->
+
+  <!-- Hear we start navigation bar  -->
+
+  <nav class="navbar bg-info fixed-top">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- navigation likes like home document about us contact us  -->
+      <ul class="nav nav-tabs">
+        <li class="nav-item"><a class="nav-link h2 navlink"  [routerLinkActiveOptions]="{exact:true}"  routerLinkActive='active' routerLink="/login" >Login in</a></li>
+        <!-- <li class="nav-item "><a class="nav-link" routerLinkActive="active" routerLink="">Documents</a></li> -->
+         <li class="nav-item"><a class="nav-link h2 navlink"  routerLinkActive='active' routerLink="aboutus/">About Us</a></li>
+         <li class="nav-item"><a class="nav-link h2 navlink" routerLinkActive='active' routerLink="contactus/">Contact Us</a></li> 
+         <!-- <li class="nav-item"><a class="nav-link" routerLinkActive='active' routerLink="product/">Product</a></li> -->
+       </ul> 
+
+
+      <div class="offcanvas offcanvas-start mt-5" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <!-- <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div> -->
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLinkActive="active" routerLink="simpleTemp/">Template Driven Form</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLinkActive="active" routerLink="formAssin/">Template Driven & Reactive Form</a>
+            </li>
+
+            <li class="nav-item dropdown">
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown
+              </button>
+              <ul class="dropdown-menu">
+                <li><button class="dropdown-item" type="button">Action</button></li>
+                <li><button class="dropdown-item" type="button">Another action</button></li>
+                <!-- <li><a class="nav-link" routerLinkActive="active" routerLink="formAssin/">Template Driven & Reactive Form</a></li> -->
+              </ul>
+            </div>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form class="d-flex mt-3" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+</header>
 <router-outlet></router-outlet>

@@ -43,6 +43,11 @@ import { FilterpipeComponent } from './pipe/filterpipe/filterpipe.component';
 import { FilterPipe } from './pipe/filter.pipe';
 import { PipeAssinComponent } from './pipe/pipe-assin/pipe-assin.component';
 import { GenderPipe } from './pipe/gender.pipe';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { ContactusComponent } from './contactus/contactus.component';
+import { ProductComponent } from './product/product.component';
+import { LoginComponent } from './login/login.component';
+
 
 
 @NgModule({
@@ -82,12 +87,16 @@ import { GenderPipe } from './pipe/gender.pipe';
     FilterpipeComponent,
     FilterPipe,
     PipeAssinComponent,
-    GenderPipe
+    GenderPipe,
+    AboutusComponent,
+    ContactusComponent,
+    ProductComponent,
+    LoginComponent
   ],
   imports: [ // all modules
     BrowserModule,AppRoutingModule,FormsModule,ReactiveFormsModule,HttpClientModule
   ],
   providers: [DemoService],// all services 
-  bootstrap: [ PipeAssinComponent] // default loading component hearer
+  bootstrap: [ AppComponent] // default loading component hearer
 })
 export class AppModule { }
