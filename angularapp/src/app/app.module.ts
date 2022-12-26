@@ -47,6 +47,11 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { ProductComponent } from './product/product.component';
 import { LoginComponent } from './login/login.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { LptopComponent } from './product/lptop/lptop.component';
+import { TvComponent } from './product/tv/tv.component';
+import { MobileComponent } from './product/mobile/mobile.component';
+import { WashingMachinComponent } from './product/washing-machin/washing-machin.component';
 
 
 
@@ -91,7 +96,12 @@ import { LoginComponent } from './login/login.component';
     AboutusComponent,
     ContactusComponent,
     ProductComponent,
-    LoginComponent
+    LoginComponent,
+    PagenotfoundComponent,
+    LptopComponent,
+    TvComponent,
+    MobileComponent,
+    WashingMachinComponent
   ],
   imports: [ // all modules
     BrowserModule,AppRoutingModule,FormsModule,ReactiveFormsModule,HttpClientModule

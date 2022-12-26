@@ -6,20 +6,34 @@ import { FormassinComponent } from './Forms/formassin/formassin.component';
 import { SimpletemplateformComponent } from './Forms/simpletemplateform/simpletemplateform.component';
 import { TempAssinComponent } from './Forms/temp-assin/temp-assin.component';
 import { LoginComponent } from './login/login.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { LptopComponent } from './product/lptop/lptop.component';
+import { MobileComponent } from './product/mobile/mobile.component';
 import { ProductComponent } from './product/product.component';
+import { TvComponent } from './product/tv/tv.component';
+import { WashingMachinComponent } from './product/washing-machin/washing-machin.component';
 
 
 const routes: Routes = [
   
    {path:'login',component:LoginComponent}, 
-  //  {path:'', redirectTo:'login',pathMatch:'full'},
+   {path:'', redirectTo:'login',pathMatch:'full'},
    { path:'aboutus' ,component:AboutusComponent} ,// localhost://4200/aboutus
    { path:'contactus' ,component:ContactusComponent},
-   { path:'product' ,component:ProductComponent},
+   { path:'product' ,component:ProductComponent ,children:[
+    // {path:'',component:ProductComponent},
+    {path:'laptop',component:LptopComponent},
+    {path:'mobile',component:MobileComponent},
+    {path:'tv',component:TvComponent},
+    {path:'wachingMachine',component:WashingMachinComponent},
+   ]},
    { path:'simpleTemp' ,component:SimpletemplateformComponent},
    { path:'tempAssin' ,component:TempAssinComponent},
    {path:'formAssin', component:FormassinComponent},
+   {path:'**', component:PagenotfoundComponent},
 ];
+
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
