@@ -7,11 +7,13 @@ import { SimpletemplateformComponent } from './Forms/simpletemplateform/simplete
 import { TempAssinComponent } from './Forms/temp-assin/temp-assin.component';
 import { LoginComponent } from './login/login.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
-import { LptopComponent } from './product/lptop/lptop.component';
+import { LptopComponent } from './product/laptop/lptop.component';
 import { MobileComponent } from './product/mobile/mobile.component';
 import { ProductComponent } from './product/product.component';
 import { TvComponent } from './product/tv/tv.component';
 import { WashingMachinComponent } from './product/washing-machin/washing-machin.component';
+import { DemoPostComponent } from './services/demo-post/demo-post.component';
+import { PostDetailsComponent } from './services/post-details/post-details.component';
 
 
 const routes: Routes = [
@@ -30,6 +32,9 @@ const routes: Routes = [
    { path:'simpleTemp' ,component:SimpletemplateformComponent},
    { path:'tempAssin' ,component:TempAssinComponent},
    {path:'formAssin', component:FormassinComponent},
+   {path:'post',component:DemoPostComponent},
+   {path:'postdetails/:id',component:PostDetailsComponent},
+   
    {path:'**', component:PagenotfoundComponent},
 ];
 

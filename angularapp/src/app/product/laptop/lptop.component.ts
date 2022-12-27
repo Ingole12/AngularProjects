@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-lptop',
+  selector: 'app-laptop',
   templateUrl: './lptop.component.html',
   styleUrls: ['./lptop.component.css']
 })

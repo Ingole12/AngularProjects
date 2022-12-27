@@ -1,0 +1,23 @@
+
+<div class="container m-5 p-5 ">
+    <table class="table table-bordered border-5 border-dark table-active">
+        <thead class="text-warning text-center table-dark">
+           <tr>
+            <th>UserID</th>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Body</th>
+           </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let post of getpostsdata" class=" text-center">
+                <td>{{post.userId}}</td>
+                <!-- <button class=" btn ui-button-icon-primary" (click)="Submit()"> -->
+                    <td><a [routerLink]="['/postdetails',post.id]" style="text-decoration: none; color: black;">{{post.id}}</a></td>
+                <!-- </button> -->
+                <td>{{post.title}}</td>
+                <td>{{post.body}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
