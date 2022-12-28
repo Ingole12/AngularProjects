@@ -48,13 +48,12 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { ProductComponent } from './product/product.component';
 import { LoginComponent } from './login/login.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
-// import { LptopComponent } from './product/lptop/lptop.component';
-import { TvComponent } from './product/tv/tv.component';
-import { MobileComponent } from './product/mobile/mobile.component';
-import { WashingMachinComponent } from './product/washing-machin/washing-machin.component';
-import { LptopComponent } from './product/laptop/lptop.component';
 import { DemoPostComponent } from './services/demo-post/demo-post.component';
 import { PostDetailsComponent } from './services/post-details/post-details.component';
+import { ProductsModule } from './product/products.module';
+import { UtilityModule } from './models/utility.module';
+import { ElectronicsComponent } from './electronics/electronics.component';
+import { ElectronicModule } from './electronics/electronic.module';
 
 
 
@@ -69,7 +68,7 @@ import { PostDetailsComponent } from './services/post-details/post-details.compo
     NgswitchComponent,
     StructuraldirectivesassinComponent,
     AttriComponent,
-    CustdirDirective,
+    // CustdirDirective,
     PasswordComponent,
     PassDirective,
     ParentComponent,
@@ -101,15 +100,13 @@ import { PostDetailsComponent } from './services/post-details/post-details.compo
     ProductComponent,
     LoginComponent,
     PagenotfoundComponent,
-    LptopComponent,
-    TvComponent,
-    MobileComponent,
-    WashingMachinComponent,
     DemoPostComponent,
-    PostDetailsComponent
+    PostDetailsComponent,
+    ElectronicsComponent
   ],
   imports: [ // all modules
-    BrowserModule,AppRoutingModule,FormsModule,ReactiveFormsModule,HttpClientModule
+    BrowserModule,AppRoutingModule,FormsModule,ReactiveFormsModule,
+    HttpClientModule,ProductsModule,UtilityModule,ElectronicModule
   ],
   providers: [DemoService],// all services 
   bootstrap: [ AppComponent] // default loading component hearer
