@@ -6,11 +6,10 @@ import { TvComponent } from './tv/tv.component';
 import { WashingMachinComponent } from './washing-machin/washing-machin.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductComponent } from './product.component';
-// import { CustdirDirective } from '../custdir.directive';
 import { UtilityModule } from '../models/utility.module';
 
 const prodRoutes : Routes = [
-  { path:'product' ,component:ProductComponent ,children:[
+  { path:'' ,component:ProductComponent ,children:[
     // {path:'',component:ProductComponent},
     {path:'laptop',component:LptopComponent},
     {path:'mobile',component:MobileComponent},
@@ -20,11 +19,12 @@ const prodRoutes : Routes = [
 ]
 
 @NgModule({
-  declarations: [LptopComponent,
+  declarations: [
+      ProductComponent   ,
+    LptopComponent,
     MobileComponent,
     TvComponent,
     WashingMachinComponent,
-    // CustdirDirective
   ],
   imports: [
     CommonModule,
@@ -33,4 +33,9 @@ const prodRoutes : Routes = [
   ],
   exports:[RouterModule]
 })
-export class ProductsModule { }
+export class ProductsModule { 
+  constructor(){
+    console.log('Product Module called');
+    
+  }
+}

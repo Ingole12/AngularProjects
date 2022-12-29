@@ -97,18 +97,29 @@ import { ElectronicModule } from './electronics/electronic.module';
     GenderPipe,
     AboutusComponent,
     ContactusComponent,
-    ProductComponent,
+    // ProductComponent,
     LoginComponent,
     PagenotfoundComponent,
     DemoPostComponent,
     PostDetailsComponent,
-    ElectronicsComponent
+    // ElectronicsComponent
   ],
   imports: [ // all modules
-    BrowserModule,AppRoutingModule,FormsModule,ReactiveFormsModule,
-    HttpClientModule,ProductsModule,UtilityModule,ElectronicModule
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    AppRoutingModule
+    // ProductsModule,     //this is module remove for lazy loading
+    // UtilityModule,
+    // ElectronicModule,
   ],
   providers: [DemoService],// all services 
   bootstrap: [ AppComponent] // default loading component hearer
 })
-export class AppModule { }
+export class AppModule { 
+  constructor(){
+    console.log('AppModule Called');
+    
+  }
+}

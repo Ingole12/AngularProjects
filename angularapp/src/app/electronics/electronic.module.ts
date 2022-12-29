@@ -2,25 +2,24 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CamerasComponent } from './cameras/cameras.component';
 import { GamingComponent } from './gaming/gaming.component';
-import { RouterModule, Routes } from '@angular/router';
 import { ElectronicsComponent } from './electronics.component';
 import { UtilityModule } from '../models/utility.module';
-
-const prodRoutes : Routes = [
-  { path:'electronics' ,component:ElectronicsComponent ,children:[
-    // {path:'',component:ProductComponent},
-    {path:'camera',component:CamerasComponent},
-    {path:'gaming',component:GamingComponent},
-   ]}
-]
+import { ElectronicRoutingModule } from './electronic-routing.module';
 
 @NgModule({
-  declarations: [CamerasComponent, GamingComponent],
+  declarations: [
+    ElectronicsComponent,
+    CamerasComponent,
+     GamingComponent],
   imports: [
     CommonModule,
-    RouterModule.forChild(prodRoutes),
-    UtilityModule
+    UtilityModule,
+    ElectronicRoutingModule
   ],
-  exports:[RouterModule]
 })
-export class ElectronicModule { }
+export class ElectronicModule {
+  constructor(){
+    console.log('Electronics Module Called');
+    
+  }
+ }
