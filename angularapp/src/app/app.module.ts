@@ -54,6 +54,7 @@ import { ProductsModule } from './product/products.module';
 import { UtilityModule } from './models/utility.module';
 import { ElectronicsComponent } from './electronics/electronics.component';
 import { ElectronicModule } from './electronics/electronic.module';
+import { AddUserComponent } from './add-user/add-user.component';
 
 
 
@@ -102,6 +103,7 @@ import { ElectronicModule } from './electronics/electronic.module';
     PagenotfoundComponent,
     DemoPostComponent,
     PostDetailsComponent,
+    AddUserComponent,
     // ElectronicsComponent
   ],
   imports: [ // all modules

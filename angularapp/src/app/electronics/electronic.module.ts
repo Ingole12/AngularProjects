@@ -13,7 +13,7 @@ import { ElectronicRoutingModule } from './electronic-routing.module';
      GamingComponent],
   imports: [
     CommonModule,
-    UtilityModule,
+    UtilityModule,       // This is Shared Module for sharing custom directive.
     ElectronicRoutingModule
   ],
 })

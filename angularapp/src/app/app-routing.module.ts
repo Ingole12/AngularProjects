@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { AboutusComponent } from './aboutus/aboutus.component';
+import { AddUserComponent } from './add-user/add-user.component';
+import { AuthGuard } from './auth.guard';
 import { ContactusComponent } from './contactus/contactus.component';
 import { FormassinComponent } from './Forms/formassin/formassin.component';
 import { SimpletemplateformComponent } from './Forms/simpletemplateform/simpletemplateform.component';
@@ -15,6 +17,7 @@ import { TvComponent } from './product/tv/tv.component';
 import { WashingMachinComponent } from './product/washing-machin/washing-machin.component';
 import { DemoPostComponent } from './services/demo-post/demo-post.component';
 import { PostDetailsComponent } from './services/post-details/post-details.component';
+import { UnSaveChangesGuard } from './un-save-changes.guard';
 
 
 const routes: Routes = [
@@ -37,10 +40,12 @@ const routes: Routes = [
    
    {path:'postdetails/:id',component:PostDetailsComponent},  //Router parameter
 
-   {path:'product', loadChildren:'./product/products.module#ProductsModule'},
-   {path:'electronic', loadChildren:'./electronics/electronic.module#ElectronicModule'},  //syntax of lazy loading approach
-
-   {path:'**', component:PagenotfoundComponent},
+   {path:'product', canActivate:[AuthGuard], loadChildren:'./product/products.module#ProductsModule'},
+   {path:'electronic', canActivate:[AuthGuard], loadChildren:'./electronics/electronic.module#ElectronicModule'},  //syntax of lazy loading approach
+    {path:'order',loadChildren:'./order/order.module#OrderModule'},
+    {path:'addUser',component:AddUserComponent,canDeactivate:[UnSaveChangesGuard]},
+    {path:'formassin',component:FormassinComponent,canDeactivate:[UnSaveChangesGuard]},
+   {path:'**', component:PagenotfoundComponent},   //Wild Card Routing 
 ];
 
 

@@ -33,7 +33,7 @@ const prodRoutes : Routes = [
   ],
   exports:[RouterModule]
 })
-export class ProductsModule { 
+export class ProductsModule {   // splited from app.module into productModule
   constructor(){
     console.log('Product Module called');
     

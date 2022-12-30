@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { $ } from 'protractor';
 import { RegiForm } from 'src/app/models/employee';
+import { SafeData } from 'src/app/save-data.interface';
 
 @Component({
   selector: 'app-formassin',
   templateUrl: './formassin.component.html',
   styleUrls: ['./formassin.component.css']
 })
-export class FormassinComponent implements OnInit {
+export class FormassinComponent implements OnInit,SafeData {
   gender = [
     { 'id': 1, 'name': 'Male' },
     { 'id': 3, 'name': 'Female' },
@@ -22,6 +23,7 @@ export class FormassinComponent implements OnInit {
   constructor() {
     this.crateFor();
                }
+ 
   ngOnInit() {}
   newarray: any = [];
   validvar: boolean = false;
@@ -65,6 +67,13 @@ export class FormassinComponent implements OnInit {
       'cpassword': new FormControl('', [Validators.required])
 
     })
+  }
+
+  //this SafeData class method which is in Interface save-data.Interface.ts
+  // this is used for canDeActive 
+  isDataSaved(): boolean {
+    return !this.reactiveForm.dirty;
+    // throw new Error('Method not implemented.');
   }
 
   Onclick() {

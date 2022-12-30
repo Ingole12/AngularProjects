@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { tempform } from 'src/app/models/employee';
+import { SafeData } from 'src/app/save-data.interface';
 
 @Component({
   selector: 'app-temp-assin',
@@ -12,6 +13,7 @@ selopn:string='Advanced';
 obj=new tempform();
 submitted:boolean=false;
   constructor() { }
+ 
 
   ngOnInit() { 
   }
