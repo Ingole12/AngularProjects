@@ -4,6 +4,7 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { AddUserComponent } from './add-user/add-user.component';
 import { AuthGuard } from './auth.guard';
 import { ContactusComponent } from './contactus/contactus.component';
+import { RapidapiComponent } from './CRUD/rapidapi/rapidapi.component';
 import { FormassinComponent } from './Forms/formassin/formassin.component';
 import { SimpletemplateformComponent } from './Forms/simpletemplateform/simpletemplateform.component';
 import { TempAssinComponent } from './Forms/temp-assin/temp-assin.component';
@@ -45,6 +46,8 @@ const routes: Routes = [
     {path:'order',loadChildren:'./order/order.module#OrderModule'},
     {path:'addUser',component:AddUserComponent,canDeactivate:[UnSaveChangesGuard]},
     {path:'formassin',component:FormassinComponent,canDeactivate:[UnSaveChangesGuard]},
+
+    {path:'news',component:RapidapiComponent},
    {path:'**', component:PagenotfoundComponent},   //Wild Card Routing 
 ];
 

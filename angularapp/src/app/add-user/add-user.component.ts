@@ -10,14 +10,24 @@ import { SafeData } from '../save-data.interface';
 export class AddUserComponent implements OnInit,SafeData {
 
 
+  myReactiveForm:FormGroup;
   userName :FormControl =new FormControl();
   constructor() {
+    this.createForm();
    }
   isDataSaved(): boolean {
-    return !this.userName.dirty;
-    // throw new Error('Method not implemented.');
+    return !this.myReactiveForm.dirty;
   }
   ngOnInit() {
   }
   
+  createForm(){
+  this.myReactiveForm  =new FormGroup({
+      'userName':new FormControl('')
+    })
+  }
+  Submit(){
+    console.log(this.myReactiveForm);
+    
+  }
 }

@@ -21,5 +21,11 @@ export class PostDetailsComponent implements OnInit {
       
     })
   }
+  deletePost(){
+    this._postService.deletePostById(1).subscribe(data=>{
+      console.log(data);
+      
+    })
+  }
    
 }

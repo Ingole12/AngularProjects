@@ -55,6 +55,7 @@ import { UtilityModule } from './models/utility.module';
 import { ElectronicsComponent } from './electronics/electronics.component';
 import { ElectronicModule } from './electronics/electronic.module';
 import { AddUserComponent } from './add-user/add-user.component';
+import { RapidapiComponent } from './CRUD/rapidapi/rapidapi.component';
 
 
 
@@ -104,6 +105,7 @@ import { AddUserComponent } from './add-user/add-user.component';
     DemoPostComponent,
     PostDetailsComponent,
     AddUserComponent,
+    RapidapiComponent,
     // ElectronicsComponent
   ],
   imports: [ // all modules

@@ -1,0 +1,50 @@
+<div class="container-fluid m-5 p-5">
+  <!-- <div class="container">
+       <table class=" table table-bordered">
+          <thead class=" table border">
+            <tr>
+                <th>Title</th>
+            <th>Id</th>
+            <th>Card</th>
+            <th>Date</th>
+            <th>Long Url</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let one of bbfinaceData">
+                <td>{{one.title}}</td>
+                <td>{{one.id}}</td>
+                <td>{{one.card}}</td>
+                <td>{{one.date}}</td>
+                <td><a href="{{one.longURL}}">{{one.longURL}}</a></td>
+            </tr>
+          </tbody>
+       </table>
+    </div> -->
+
+  <!-- Showing blumbarg dada(artical,video) in card  -->
+
+  <div class="container">
+
+    <div class=" h2 text-center text-dark">get data from Rapid API (BB Finance API)</div>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div *ngFor="let one of bbfinaceData"
+        class="col p-4 m-4 w-25 d-flex flex-wrap flex-row bg-dark text-white border border-dark border-2 rounded-5">
+        <a href="{{one.longURL}}" style=" text-decoration: none; ">
+          <div class="card border-0 h-75">
+            <div class=" bg-dark text-white text-capitalize">
+              <h4 class=" text-dark text-white text-center"> &nbsp;&nbsp;{{one.card}}</h4>
+            </div>
+            <img src="{{one.thumbnailImage}}" class="card-img-top">
+            <div class="card-body bg-dark text-white">
+              <h5 class="card-title text-primary">{{one.title}}</h5>
+              <p class="card-text ">ID -: &nbsp; &nbsp;{{one.id}} <br>
+                Date -: &nbsp;&nbsp; {{one.date}}</p>
+
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
