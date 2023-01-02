@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { $ } from 'protractor';
+import { FirebaseService } from 'src/app/CRUD/firebase.service';
 import { RegiForm } from 'src/app/models/employee';
 import { SafeData } from 'src/app/save-data.interface';
 
@@ -20,11 +21,17 @@ export class FormassinComponent implements OnInit,SafeData {
   defgender: string = 'Male';
   regiFormobj = new RegiForm();
 
-  constructor() {
+  constructor(private _firebase:FirebaseService) {
     this.crateFor();
                }
  
-  ngOnInit() {}
+  ngOnInit() {
+    this._firebase.getDataRegiFormFirebase().subscribe(res=>{
+      console.log(`Registration Form Data From FB DB:`,res);
+      
+    })
+  }
+
   newarray: any = [];
   validvar: boolean = false;
   OnSubmit(form: NgForm) {
@@ -76,13 +83,25 @@ export class FormassinComponent implements OnInit,SafeData {
     // throw new Error('Method not implemented.');
   }
 
+  reactiveFormData:RegiForm
   Onclick() {
+ 
+    this.reactiveFormData=new RegiForm;
+    this.reactiveFormData=this.reactiveForm.value;
+    console.log(this.reactiveFormData);
+    
+    this._firebase.PostDataRegistrationForm(this.reactiveFormData).subscribe(res=>{
+      console.log(`Registration ReactiveForm Data in Firebase DB :`,res);
+      
+    })
+
     if (this.reactiveForm.valid) {
       this.showtable=true;
     }
     this.reactiveFormarray.push(this.reactiveForm.value);
-    console.log(this.reactiveForm);
-    console.log(this.reactiveFormarray);
+    // console.log(this.reactiveForm);
+    // console.log(this.reactiveFormarray);
+    
   }
 }
 

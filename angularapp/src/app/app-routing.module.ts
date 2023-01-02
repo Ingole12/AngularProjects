@@ -16,6 +16,7 @@ import { ProductComponent } from './product/product.component';
 import { ProductsModule } from './product/products.module';
 import { TvComponent } from './product/tv/tv.component';
 import { WashingMachinComponent } from './product/washing-machin/washing-machin.component';
+import { ReFormComponent } from './Reactive/re-form/re-form.component';
 import { DemoPostComponent } from './services/demo-post/demo-post.component';
 import { PostDetailsComponent } from './services/post-details/post-details.component';
 import { UnSaveChangesGuard } from './un-save-changes.guard';
@@ -48,6 +49,7 @@ const routes: Routes = [
     {path:'formassin',component:FormassinComponent,canDeactivate:[UnSaveChangesGuard]},
 
     {path:'news',component:RapidapiComponent},
+    {path:'CRUD',component:ReFormComponent},
    {path:'**', component:PagenotfoundComponent},   //Wild Card Routing 
 ];
 

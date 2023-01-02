@@ -1,13 +1,19 @@
+<div class="container m-5 justify-content-center p-5">
+    <p>To Post Hard Coded Value On DataBase </p>
+    <button class=" btn btn-primary" (click)="createPost1()">Createpost</button>
+</div>
+<hr>
+<hr>
 <div class="container border bg-dark text-warning text-capitalize">
     <div class=" row justify-content-center border">
-        <div class="col-md-6 text-left rounded py-5 ">
+        <div class="col-md-6 text-left rounded py-5">
             <h3>Reactive Form Learning</h3>
             <form [formGroup]="myReactiveForm" action="">
                 <div class="form-group" formGroupName="userDetails">
 
                     <div class="from-group">
                         <label for="">User Name:</label>
-                        <input type="text" name="" id="" class=" form-control" formControlName="username"
+                        <input type="text" name="" class=" form-control" formControlName="username"
                             placeholder="Enter user Name">
                         <small class=" text-danger"
                             *ngIf="!myReactiveForm.get('userDetails.username').valid && myReactiveForm.get('userDetails.username').touched">
@@ -21,9 +27,9 @@
                                 Name is not allowed</small>
                         </small>
                     </div>
-                    <div class="form-group"> 
+                    <div class="form-group">
                         <label for="">Email :</label>
-                        <input type="text" name="" id="" class=" form-control" formControlName="email"
+                        <input type="text" name="" class=" form-control" formControlName="email"
                             placeholder="Enter Email Address">
                         <small class=" text-danger"
                             *ngIf="!myReactiveForm.get('userDetails.email').valid && myReactiveForm.get('userDetails.email').touched">Please
@@ -37,7 +43,7 @@
                 </div>
                 <div class="form-group h4">
                     <label for="">Select Course</label>
-                    <select class="form-control" name="" id="" formControlName="Course">
+                    <select class="form-control" name="" formControlName="Course">
                         <option value="Angular">Angular</option>
                         <option value="React">React</option>
                         <option value="view">View</option>
@@ -53,7 +59,7 @@
                 </div>
                 <div class="form-group" formArrayName="skills">
                     <label for="">
-                        <h4>Skills</h4>  
+                        <h4>Skills</h4>
                     </label>
                     <ng-container *ngFor="let skill of myReactiveForm.get('skills').controls;index as i">
                         <input type="text" class=" form-control mt-2" formControlName="{{i}}" placeholder=" Add Skills">

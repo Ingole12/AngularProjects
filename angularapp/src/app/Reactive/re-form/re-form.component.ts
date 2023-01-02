@@ -2,6 +2,8 @@ import { summaryFileName } from '@angular/compiler/src/aot/util';
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormArrayName, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { FirebaseService } from 'src/app/CRUD/firebase.service';
+import { firebase } from 'src/app/models/firebase';
 import { resolve } from 'url';
 
 @Component({
@@ -20,11 +22,18 @@ export class ReFormComponent implements OnInit {
   ];
   notAllowedNames = ['Codemind', 'Technology'];
 
-  constructor(private _fb:FormBuilder) {
+  constructor(private _fb:FormBuilder,private _firebase:FirebaseService) {
     this.createForm();
   }
 
   ngOnInit() {
+
+
+    this._firebase.getPostsDataFirebase().subscribe(res=>{
+      console.log(`Reactive Learning ReactiveForm Data On FB DB:`,res); 
+    })
+
+
 
     // setTimeout(() => {
     //   this.myReactiveForm.setValue({
@@ -72,10 +81,27 @@ export class ReFormComponent implements OnInit {
     })
   }
 
+  firebasePost:firebase;
   OnSubmit() {
     this.btndisable=true;
-    console.log(this.myReactiveForm);
-    // console.log(this.myReactiveForm.get('username').value);
+    // console.log(this.myReactiveForm.value);
+    this.firebasePost= new firebase;
+     this.firebasePost=this.myReactiveForm.value;
+    // console.log(this.firebasePost);
+
+    // this.firebasePost.userName=this.myReactiveForm['controls'].userDetails['controls'].username.value;
+    //  this.firebasePost.email=this.myReactiveForm['controls'].userDetails['controls'].email.value;
+    //  this.firebasePost.course=this.myReactiveForm['controls'].Course.value;
+    //  this.firebasePost.gender=this.myReactiveForm['controls'].gender.value;
+    //  this.firebasePost.skills=this.myReactiveForm['controls'].skills.value;
+    //  console.log(this.firebasePost);
+
+    //pasing data to database using firebase service 
+     this._firebase.createPostDataReactiveForm(this.firebasePost).subscribe(res=>{
+      console.log(`Post from reactive From :`,res);
+      
+     })
+    // console.log(this.myReactiveForm['controls'].userDetails['controls'].username.value);
   }
   OnAddSkill(){
     (<FormArray>this.myReactiveForm.get('skills')).push(new FormControl(null,Validators.required));
@@ -102,5 +128,11 @@ export class ReFormComponent implements OnInit {
       }, 2000);
     })
     return myResponse;
+  }
+
+  createPost1(){
+    this._firebase.createPost().subscribe(res=>{
+      console.log(`Hard coded post Data From FB DB -:`,res); 
+    })
   }
 }

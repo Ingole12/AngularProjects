@@ -9,7 +9,7 @@ export class AuthService {
   checkUserNameAndPassword(username:string,pwd:string){
         if (username == "admin" && pwd== "admin1" ) {
           // localStorage.setItem('username','admin');
-          sessionStorage.setItem('username','admin');
+          localStorage.setItem('username','admin');
           return true;
         }
         else{
