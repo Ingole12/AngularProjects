@@ -1,9 +1,11 @@
 import { summaryFileName } from '@angular/compiler/src/aot/util';
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormArrayName, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { FormArray, FormArrayName, FormBuilder, FormControl, FormGroup, SelectMultipleControlValueAccessor, Validators } from '@angular/forms';
+import { from, interval, Observable } from 'rxjs';
 import { FirebaseService } from 'src/app/CRUD/firebase.service';
 import { firebase } from 'src/app/models/firebase';
+
+import { map, catchError, filter, toArray, take, takeLast } from 'rxjs/operators';
 import { resolve } from 'url';
 
 @Component({
@@ -28,10 +30,68 @@ export class ReFormComponent implements OnInit {
 
   ngOnInit() {
 
+   // to convert simple array into observable by using Rxjs
+    const data=from(this._firebase.user);
 
-    this._firebase.getPostsDataFirebase().subscribe(res=>{
-      console.log(`Reactive Learning ReactiveForm Data On FB DB:`,res); 
+    // pipe is method of observable to combine multiple functional operators 
+    // data.pipe( map(x=>x.Name+" "+data)).subscribe(res =>{
+    //   console.log(`Result of array After using rxjs operator:`,res);
+      
+    // })
+
+// Filter Operator
+    data.pipe(
+      filter(u=>u.gender == 'Male'),
+      toArray()
+    ).subscribe(res=>{
+      console.log(`Filter Operator`,res);
+      
     })
+
+   // Take operator
+    // const sourse=interval(1000);
+    // sourse.pipe(
+    //   take(5)).subscribe(res=>{
+    //   console.log(`Interval Example`,res);
+      
+    // })
+    
+   
+    // Take last 
+    let randomName = ['Rahul','Angular','Java','Python','Data Science'];
+
+    const sourse=from(randomName);
+
+    sourse.pipe(
+      takeLast(2)
+    ).subscribe(res=>{
+      console.log(`Tack Last Operator`, res);
+      
+    })
+
+    
+    // let getarray=[];
+    // this._firebase.getPostsDataFirebase().pipe(
+    //   map(responseData => {
+    //     // empty array
+    //     const postArray = [];
+    //     //  for in loop
+    //    for (const key in responseData) {
+    //     //   check key
+    //          if (responseData.hasOwnProperty(key)) {
+    //           // push new value in to array
+    //               postArray.push({...responseData[key], id:key});
+    //          }
+    //     }
+    //     return postArray;
+      
+    //   })
+    // ).subscribe(res=>{
+    //   console.log(`Reactive Learning ReactiveForm Data On FB DB After using rxjs operator:`,res); 
+    //     getarray=res;
+    //     console.log(getarray);
+        
+    // })
 
 
 
@@ -57,6 +117,34 @@ export class ReFormComponent implements OnInit {
     }, 3500);
 
   }
+
+
+  getData(){
+
+    let getarray=[];
+    this._firebase.getPostsDataFirebase().pipe(
+      map(responseData => {
+        // empty array
+        const postArray = [];
+        //  for in loop
+       for (const key in responseData) {
+        //   check key
+             if (responseData.hasOwnProperty(key)) {
+              // push new value in to array
+                  postArray.push({...responseData[key], id:key});
+             }
+        }
+        return postArray;
+      
+      })
+    ).subscribe(res=>{
+      console.log(`Reactive Learning ReactiveForm Data On FB DB After using rxjs operator:`,res); 
+        getarray=res;
+        console.log(getarray);
+        
+    })
+  }
+
   createForm() {
     // this.myReactiveForm = new FormGroup({
     //   'userDetails': new FormGroup({
@@ -136,3 +224,4 @@ export class ReFormComponent implements OnInit {
     })
   }
 }
+

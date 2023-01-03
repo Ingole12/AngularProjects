@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { firebase } from '../models/firebase';
 
 @Injectable({
@@ -10,6 +11,13 @@ export class FirebaseService {
   url='https://angular-crud-f052e-default-rtdb.firebaseio.com/';
   constructor(private _httpClient:HttpClient) { }
    
+  user:any[]=[
+    {id:'101', Name:'Rahul',gender:'Male'},
+    {id:'102',Name:'Dada',gender:'Male'},
+    {id:'103',Name:'Jack',gender:'Male'},
+    {id:'104',Name:'Haramayni',gender:'Female'}
+  ]
+
   createPost(){
     let postData={
       title:'this is Angular CRUD',
@@ -22,12 +30,12 @@ export class FirebaseService {
   //----------------------------- Post data ReactiveForm Learning to Firebase DataBase------------------------------------------------
   createPostDataReactiveForm(data){
       // console.log(`From re-form : `,data);
-    return this._httpClient.post(this.url + "post.json",data);
+    return this._httpClient.post(this.url + "Learningpost.json",data);
   }
  
   //Get data From Firebase DataBase only  ReactiveForm Learning
-  getPostsDataFirebase(){
-    return this._httpClient.get(this.url+ 'post.json');
+  getPostsDataFirebase():Observable<any>{
+    return this._httpClient.get(this.url+ 'Learningpost.json');
   }
 
 
