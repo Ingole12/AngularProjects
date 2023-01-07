@@ -4,3 +4,10 @@ export class Post{
     title:string;
     body:string;
 }
+
+export class hotel{
+    id:number;
+    name:string;
+    city:string;
+    stars:any;
+}

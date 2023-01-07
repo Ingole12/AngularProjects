@@ -1,0 +1,53 @@
+<!-- <div class=" container shadow-lg"> -->
+    <form [formGroup]="myReactiveForm">
+        <div class=" m-4 p-4 ">
+            <div class=" h4 text-center">Hotel Detail</div>
+            <div class=" d-flex flex-column align-items-center">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Id</label>
+                    <input type="text" class="form-control " formControlName="id" placeholder="Enter Hotel Id">
+                </div>
+                <div class="mb-3">
+                    <label for="formGroupExampleInput2" class="form-label">Name</label>
+                    <input type="text" class="form-control " formControlName="name"
+                        placeholder="Enter Name of The Hotel">
+                </div>
+                <div class="mb-3">
+                    <label for="formGroupExampleInput2" class="form-label">City</label>
+                    <input type="text" class="form-control " formControlName="city">
+                </div>
+                <div class="mb-3">
+                    <label for="formGroupExampleInput2" class="form-label">Stars</label>
+                    <input type="text" class="form-control " formControlName="stars">
+                </div>
+                <div class="mb-3">
+                    <div class="col">
+                        <button class=" btn btn-primary" (click)="save()">Save</button>
+                        <input class=" btn btn-primary m-4" type="reset" value="Reset">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class=" container">
+        <table class=" table border"> 
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>City</th>
+                    <th>Stars</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr  *ngFor=" let one of getdata">
+                   <td>{{one.id}}</td>
+                   <td>{{one.name}}</td>
+                   <td>{{one.city}}</td>
+                   <td>{{one.stars}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+<!-- </div> -->

@@ -57,6 +57,7 @@ import { ElectronicModule } from './electronics/electronic.module';
 import { AddUserComponent } from './add-user/add-user.component';
 import { RapidapiComponent } from './CRUD/rapidapi/rapidapi.component';
 import { HotleapiComponent } from './CRUD/hotleapi/hotleapi.component';
+import { HotelDetailsComponent } from './CRUD/hotel-details/hotel-details.component';
 
 
 
@@ -108,6 +109,7 @@ import { HotleapiComponent } from './CRUD/hotleapi/hotleapi.component';
     AddUserComponent,
     RapidapiComponent,
     HotleapiComponent,
+    HotelDetailsComponent,
     // ElectronicsComponent
   ],
   imports: [ // all modules

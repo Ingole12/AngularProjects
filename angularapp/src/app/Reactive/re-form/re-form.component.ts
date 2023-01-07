@@ -134,8 +134,7 @@ export class ReFormComponent implements OnInit {
                   postArray.push({...responseData[key], id:key});
              }
         }
-        return postArray;
-      
+        return postArray;     
       })
     ).subscribe(res=>{
       console.log(`Reactive Learning ReactiveForm Data On FB DB After using rxjs operator:`,res); 
